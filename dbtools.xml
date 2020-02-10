@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+	<!--
+	**************************************************************************************************************
+	* DBTools Configuration File
+	* by vni
+	*
+	* Please make your settings only at this file. If you need help, go to the official forum topic here:
+	* http://www.tm-forum.com/viewtopic.php?f=127&t=29349
+	*
+	* NOTE
+	* You should really create a seperate directory (local or on FTP) for your backups. Especially if you
+	* want to use the pruning features!
+	**************************************************************************************************************
+	-->
+
+	<!-- 
+	*************************
+	*** MODE settings  ***
+	*************************
+	This is the general Mode-Switch. Choose between LOCAL and FTP (If you choose FTP, enter the credentials below) -->
+	
+	<backup_location>LOCAL</backup_location>
+
+	<!-- 
+	***************************
+	*** LOCAL Mode-Settings ***
+	***************************
+	Delete local Backups that are older than X days (set to 0 to disable) -->
+	
+	<backup_local_prune_after>0</backup_local_prune_after>
+
+	<!-- 
+	*************************
+	*** FTP Mode settings ***
+	*************************
+	If you set this to true, the plugin will upload the backups right
+	after the creation to an FTP-Server you can specify here.	-->
+	
+	<ftp_hostname></ftp_hostname>
+	<ftp_username></ftp_username>
+	<ftp_password></ftp_password>
+	<ftp_directory></ftp_directory> <!-- Path has to look like this: MYDIRECTORY/SUBDIRECTORY (No slashes in front or at the end!!) Leave this blank=Root -->
+	<ftp_port>21</ftp_port> <!-- Default FTP-Port is 21 -->
+	<ftp_timeout>30</ftp_timeout> <!-- Connection Timeout in seconds -->
+	
+	<!-- Delete Backups on the FTP that are older than X days (set to 0 to disable) -->
+	<ftp_prune_after>0</ftp_prune_after>
+	
+	<!-- 
+	*************************
+	*** Scheduling        ***
+	*************************
+
+	Here you can schedule tasks that should be executed automatically at a given time.
+	<command>	: Enter one of the /dbtools commands here, WITHOUT "/dbtools".
+	<day>		: Enter the number of the day when the command shall be executed (ALL=Each day, 1=Monday, 2=Tuesday,3=Wednesday,4=Thursday,5=Friday,6=Saturday,7=Sunday). 
+	<week>		: Enter the number of the week when the command shall be executed (ALL=Each week, 1-53). 
+	<time>		: Enter the time in 24h format when the command shall be executed. Example 14:30
+	You can add as many <item> blocks as you want.
+	
+	If you want to use scheduling, enable it here by setting this value to true. -->
+	
+	<scheduling_enabled>false</scheduling_enabled>
+	
+	<scheduling>
+		<!-- 
+		This example creates a backup on Monday 04:18h (if <ftp_upload> is set to true, 
+		it automatically uploads the file to the specified FTP-Server -->
+		<item>
+			<command>backup</command>
+			<week>ALL</week>
+			<day>1</day>
+			<time>12:52</time>
+		</item>
+		
+		<!-- This example optimizes the database on Thursday 15:00h -->
+		<item>
+			<command>optimize</command>
+			<week>ALL</week>
+			<day>4</day>
+			<time>15:00</time>
+		</item>
+	</scheduling>
+	
+	<!--
+	*************************
+	*** Miscellaneous     ***
+	*************************
+	Here you can enter commands that should be blocked (commaseperated, no whitespaces!) -->
+	
+	<blocked_commands>examplecommand1,examplecommand2,examplecommand3</blocked_commands>
+	
+	<!-- 
+	Do you want the text inside of a console window, or in the chat? true=Console, false=Chat -->
+	
+	<console_window>true</console_window>
+	
+	<!-- 
+	*********************************
+	*** Advanced settings         ***
+	*********************************
+	
+	Default backup path relative to the xasec root directory. THIS PATH MUST EXIST, EVEN IF YOU USE FTP!
+	If you want the backups to be created in the root-directory, set it to "./"
+	If you want the backups to be created in a subdirectory, set it to "./mydirectory/" (DO NOT FORGET THE "./" IN FRONT AND THE "/" AT THE END 
+	Do not touch this if is not neccessary -->
+	
+	<backup_default_path>./</backup_default_path>
+	
+	<!-- 
+	The default filename (Do not touch this if it is not neccessary). Use #DATE# as variable for the current date -->
+	
+	<backup_default_filename>dbtools_backup_#DATE#.sql</backup_default_filename>
+	
+	<!-- 
+	Here you can set the timestamp format that should be used on backup creation (Do not touch this) -->
+	
+	<backup_timestamp_pattern>%Y_%m_%d_%Hh%Mm</backup_timestamp_pattern>
+	
+</settings>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+	<!-- Position of the widget -->
+	<position>
+		<x>-55.3</x>
+		<y>47</y>
+	</position>
+	
+	<!-- Total Number CPS -->
+	<number>24</number>
+
+	<!-- Make sure <cps_per_line> is smaller than <number> -->
+	<newline>6</newline>
+
+	<orientation>0</orientation><!--0 : horizontal, 1 : vertical_V1, 2 : vertical_V2, 3 : vertical_V3 -->
+
+	<!-- CPS Counter -->
+	<position_counter>
+		<x_counter>0</x_counter>
+		<y_counter>-35</y_counter>
+	</position_counter>
+
+	<toggle_widget>
+		<x>44.3</x>
+		<y>35</y>
+	</toggle_widget>
+</settings>

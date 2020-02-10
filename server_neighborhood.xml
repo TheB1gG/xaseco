@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<server_neighborhood>
+	<!-- THIS IS THE CONFIG FILE FOR THE TMF-PORT ONLY -->
+
+	<!--
+	Refresh the Panel every [INT] seconds.
+	Recommendation:
+	5-10 sec. on low visited servers (cpu intensive, lag in game)
+	10-30 sec. on high volume servers (less cpu intensive, less lag in game)
+	//-->
+	<refresh_interval>10</refresh_interval>
+
+	<!-- Set to 'true' if the Widget should displayed on EndRace, otherwise set 'false' -->
+	<show_on_end_race>false</show_on_end_race>
+
+	<!-- Widget specific -->
+	<widget>
+		<gamemode>
+			<rounds>
+				<enabled>true</enabled> <!-- Set to 'false' to hide the Widget or 'true' to display -->
+				<pos_x>-64.7</pos_x>
+				<pos_y>-8.3</pos_y>
+			</rounds>
+
+			<time_attack>
+				<enabled>true</enabled> <!-- Set to 'false' to hide the Widget or 'true' to display -->
+				<pos_x>-64.7</pos_x>
+				<pos_y>-8.3</pos_y>
+			</time_attack>
+
+			<team>
+				<enabled>true</enabled> <!-- Set to 'false' to hide the Widget or 'true' to display -->
+				<pos_x>-64.7</pos_x>
+				<pos_y>-8.3</pos_y>
+			</team>
+
+			<laps>
+				<enabled>true</enabled> <!-- Set to 'false' to hide the Widget or 'true' to display -->
+				<pos_x>-64.7</pos_x>
+				<pos_y>-8.3</pos_y>
+			</laps>
+
+			<stunts>
+				<enabled>true</enabled> <!-- Set to 'false' to hide the Widget or 'true' to display -->
+				<pos_x>-64.7</pos_x>
+				<pos_y>-8.3</pos_y>
+			</stunts>
+
+			<cup>
+				<enabled>true</enabled> <!-- Set to 'false' to hide the Widget or 'true' to display -->
+				<pos_x>-64.7</pos_x>
+				<pos_y>-8.3</pos_y>
+			</cup>
+		</gamemode>
+
+		<server_full_color>$F00</server_full_color>			<!-- Must start with "$", e.g. "$FFF" -->
+		<server_normal_color>$FFF</server_normal_color>			<!-- Must start with "$", e.g. "$FFF" -->
+
+		<header_name>$EEEServer Neighborhood</header_name>		<!-- The name shown on top of the widget. Don't use any special characters! -->
+
+		<self_style>BgsPlayerCard</self_style>				<!-- see http://fish.stabb.de/styles/ -->
+		<self_substyle>BgCardSystem</self_substyle>			<!-- see http://fish.stabb.de/styles/ -->
+
+		<neighbor_style>BgsPlayerCard</neighbor_style>			<!-- see http://fish.stabb.de/styles/ -->
+		<neighbor_substyle>BgCard</neighbor_substyle>			<!-- see http://fish.stabb.de/styles/ -->
+
+		<title_style>BgsPlayerCard</title_style>			<!-- see http://fish.stabb.de/styles/ -->
+		<title_substyle>BgRacePlayerName</title_substyle>		<!-- see http://fish.stabb.de/styles/ -->
+
+		<timer_bar>
+			<enabled>true</enabled>
+
+			<!-- Background-Color, Format: RGB -->
+			<background_color>CCC</background_color>
+
+			<!-- Format: RGBA (A = Alphachanal, Opacity) -->
+			<text_color>000F</text_color>
+		</timer_bar>
+	</widget>
+
+
+	<!-- Colors for the Window background, Format: RGBA (A = Alphachanal, Opacity) -->
+	<colors>
+		<server_background>000A</server_background>		<!-- Server Overview -->
+		<neighbor_background>CCCA</neighbor_background>		<!-- Neighbor Overview -->
+	</colors>
+
+
+	<!-- Hide a server when the last modified time is higher then this given seconds (default to 1800 second = 30 minutes) -->
+	<hide_server_last_modified>1800</hide_server_last_modified>
+
+	<!-- Display max. amount of Server in the Widget. If you have more Server then this amount, the Widget display all Servers
+	each <refresh_interval> in rotation, set to '0' to disabled -->
+	<server_display_max>0</server_display_max>
+
+	<!-- The nicemode is an attempt to reduce the manialink calls, if a specific amount of players is on the server -->
+	<nicemode>
+		<enabled>true</enabled>				<!-- If you want to enable the nicemode, you need to say 'true' here! -->
+		<force>false</force>				<!-- For servers with as usual 100+ Player, you can force nicemode by default -->
+
+		<refresh_interval>20</refresh_interval>		<!-- If the nice mode is turned on then increase to this refresh interval -->
+		<limits>
+			<lower_limit>24</lower_limit>		<!-- If the playercount gets equal to or BELOW that limit, the widgets will revert to default mode -->
+			<upper_limit>25</upper_limit>		<!-- If the playercount gets equal to or ABOVE that limit, the widgets will switch to nice mode -->
+		</limits>
+	</nicemode>
+
+	<!--
+	If you wish to save the Server-Information to a remote destination e.g. on a FTP-Server
+	just use the following format "ftp://username:password@ftp.example.com/serverneighbors/"
+	NOTE: Make sure your php option "allow_url_fopen" is set to "on" and the given path exist!
+
+	If you wish to save the Server-Information local, then make sure that the path to the files
+	are read- and writeable by the user that runs xaseco (see "man chmod" under UN!X/Linux)!
+
+	Some examples for <storing_path>:
+	 - Linux (local):		<storing_path>/home/user/serverneighbors/</storing_path>
+	 - Windows (local):		<storing_path>C:/Trackmania/serverneighbors/</storing_path>
+	 - FTP (remote):		<storing_path>ftp://username:password@ftp.example.com/serverneighbors/</storing_path>
+	//-->
+	<storing_path>/home/tmf/serverneighbor/</storing_path>
+
+	<!--
+	The server neighbors, max. 56 servers!
+	<path> = path to the "<login of dedicated server neighbor>_serverinfo.xml" including the filename, with the same conditions as <storing_path> (but only for read access)
+
+	Some examples for <path> (assuming "clanserver007" as <login>):
+	 - Linux (local):		<path>/home/user/serverneighbors/clanserver007_serverinfo.xml</path>
+	 - Windows (local):		<path>C:/Trackmania/serverneighbors/clanserver007_serverinfo.xml</path>
+	 - FTP (remote):		<path>ftp://username:password@ftp.example.com/serverneighbors/clanserver007_serverinfo.xml</path>
+	 - HTTP (remote):		<path>http://www.example.com/serverneighbors/clanserver007_serverinfo.xml</path>
+	//-->
+	<server_accounts>
+
+    <server_neighbor>
+      <path>/home/tmf/serverneighbor/emc_fun_serverinfo.xml</path>
+      <enable>true</enable>
+      <!-- 'true' or 'false' -->
+      <force_spectator>false</force_spectator>
+      <!-- 'true' or 'false' -->
+    </server_neighbor>
+    <server_neighbor>
+      <path>/home/tmf/serverneighbor/emc_roc_events_serverinfo.xml</path>
+      <enable>true</enable>
+      <!-- 'true' or 'false' -->
+      <force_spectator>false</force_spectator>
+      <!-- 'true' or 'false' -->
+    </server_neighbor>
+    <server_neighbor>
+      <path>/home/tmf/serverneighbor/fullspeed.afo_serverinfo.xml</path>
+      <enable>true</enable>
+      <!-- 'true' or 'false' -->
+      <force_spectator>false</force_spectator>
+      <!-- 'true' or 'false' -->
+    </server_neighbor>
+	</server_accounts>
+
+	<!--	Urls for the Bar's in the Server-Neighborhood				-->
+	<!--	If you want, you can host this Bar´s at your own Website, just		-->
+	<!--	copy the images from this hoster.				-->
+	<urls>
+		<!--	This Bar-Images are licensed by undef.de under a				-->
+		<!--	Creative Commons Attribution-Share Alike 3.0 Germany License.			-->
+		<!--	See the following links for details:						-->
+		<!--	German:		http://creativecommons.org/licenses/by-sa/3.0/de/legalcode	-->
+		<!--	English:	http://creativecommons.org/licenses/by-sa/3.0/legalcode		-->
+
+		<bar_default>http://static.undef.name/ingame/server-neighborhood/bar_default.png</bar_default>
+		<bar_blank>http://static.undef.name/ingame/server-neighborhood/bar_blank.png</bar_blank>
+	</urls>
+
+	<!--
+	Possible values:
+		'false'	= Debug off
+		'true'	= Debug on
+		'warn'	= Only warnings on (harmless things)
+	//-->
+	<debug>false</debug>
+
+</server_neighborhood>

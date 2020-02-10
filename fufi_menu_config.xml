@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+	<menu_caption></menu_caption>
+	<styles>
+		<menubutton style='Bgs1InRace' substyle=''/>
+		<menubackground style='Bgs1' substyle='BgTitle3'/>
+		<menuicon style='Icons128x128_1' substyle=''/>
+		<menuentry style='BgsPlayerCard' substyle='BgCardSystem'/>
+		<menuentryactive style='BgsPlayerCard' substyle='BgMediaTracker'/>
+		<menugroupicon style='Icons128x128_1' substyle='Browse'/>
+		<menuhelpicon style='Icons64x64_1' substyle='TrackInfo'/>
+		<menuactionicon style='Icons64x64_1' substyle='ToolLeague1'/>
+		<separator style='Bgs1InRace' substyle='NavButton'/>
+		<indicatorfalse style='Icons64x64_1' substyle='LvlRed'/>
+		<indicatortrue style='Icons64x64_1' substyle='LvlGreen'/>
+		<indicatoronhold style='Icons64x64_1' substyle='LvlYellow'/>
+	</styles>
+	<size>0 0</size>
+	<separatorheight>0.75</separatorheight>
+	<menutimeout>13000</menutimeout> <!-- (milliseconds) time after which the menu closes itself (0 for infinite display)-->
+
+	<!--upper left preset-->
+		<position>44.5 32.5</position>
+		<horizontalorientation>2</horizontalorientation> <!-- 1.. left-to-right, 2...right-to-left-->
+		<verticalorientation>1</verticalorientation> <!-- 1.. top-to-bottom, 2.. bottom-to-top-->
+
+	<!--lower left preset-->
+	<!--
+		<position>-62 -46</position>
+		<horizontalorientation>1</horizontalorientation>
+		<verticalorientation>2</verticalorientation>
+	-->
+
+	<!--lower right preset-->
+	<!--
+		<position>48.1 -32.5</position>
+		<horizontalorientation>2</horizontalorientation>
+		<verticalorientation>2</verticalorientation>
+	-->
+
+	<!--upper right preset-->
+	<!--
+		<position>57 34</position>
+		<horizontalorientation>2</horizontalorientation>
+		<verticalorientation>1</verticalorientation>
+	-->
+
+
+	<entries>
+		<entry caption='Admin' ability='listabilities' unique='adminmenu'>
+			<entry caption='Tracks' unique='admintracks'>
+				<entry caption='Add This Track' chatcmd='/admin addthis' unique='adminaddthis'/>
+				<entry caption='Remove This Track' chatcmd='/admin removethis' unique='adminremovethis'/>
+				<entry caption='Erase This Track' chatcmd='/admin erasethis' unique='adminerasethis'/>
+				<entry caption='Shuffle Tracklist' chatcmd='/admin shuffle' unique='admintlshuffle'/>
+				<entry caption='List Duplicates' chatcmd='/admin listdupes' unique='admindupes'/>
+				<entry caption='Clear Jukebox' chatcmd='/admin cjb' unique='adminclearjb'/>
+				<entry caption='Clear History' chatcmd='/admin clearhist' unique='adminclearhist'/>
+				<entry caption='Read Matchsettings' chatcmd='/admin readtracklist' unique='admintlread'/>
+				<entry caption='Write Matchsettings' chatcmd='/admin writetracklist' unique='admintlwrite'/>
+			</entry>
+			<entry caption='Players' unique='adminplayers'>
+				<entry caption='All' chatcmd='/admin players' unique='adminplayerslist'/>
+				<entry caption='Live' chatcmd='/admin players live' unique='adminplayerslive'/>
+				<entry caption='Ignores' chatcmd='/admin ignorelist' unique='adminignorelist'/>
+					<entry caption='...Clean' chatcmd='/admin cleanignores' unique='admincleanignores'/>
+				<entry caption='Bans' chatcmd='/admin listbans' unique='adminbanlist'/>
+					<entry caption='...Clean' chatcmd='/admin cleanbanlist' unique='admincleanbanlist'/>
+				<entry caption='Banned IPs' chatcmd='/admin listips' unique='adminbanipsshow'/>
+					<entry caption='...Read' chatcmd='/admin readiplist' unique='adminipread'/>
+					<entry caption='...Write' chatcmd='/admin writeiplist' unique='adminipwrite'/>
+					<entry caption='...Clean' chatcmd='/admin cleaniplist' unique='admincleaniplist'/>
+				<entry caption='Blacklists' chatcmd='/admin listblacks' unique='adminblshow'/>
+					<entry caption='...Read' chatcmd='/admin readblacklist' unique='adminblread'/>
+					<entry caption='...Write' chatcmd='/admin writeblacklist' unique='adminblwrite'/>
+					<entry caption='...Clean' chatcmd='/admin cleanblacklist' unique='admincleanblacklist'/>
+				<entry caption='Guests' chatcmd='/admin listguests' unique='adminglshow'/>
+					<entry caption='...Read' chatcmd='/admin readguestlist' unique='adminglload'/>
+					<entry caption='...Write' chatcmd='/admin writeguestlist' unique='adminglwrite'/>
+					<entry caption='...Clean' chatcmd='/admin cleanguestlist' unique='admincleanguestlist'/>
+				<entry caption='Merge Global BL' chatcmd='/admin mergegbl' unique='adminmergegbl'/>
+				<entry caption='Access Control' dependencies='plugin.access.php' unique='adminaccess'>
+					<entry caption='List' chatcmd='/admin access list' unique='adminacclist'/>
+					<entry caption='Reload' chatcmd='/admin access reload' unique='adminaccreload'/>
+					<entry type='separator' unique='accesssep1'/>
+					<entry caption='Help' chatcmd='/admin access help' unique='adminacchelp'/>
+				</entry>
+			</entry>
+			<entry caption='Admins' unique='adminadmins'>
+				<entry caption='Masteradmins' chatcmd='/admin listmasters' unique='adminmasters'/>
+					<entry caption='...Abilities' chatcmd='/admin listabilities' unique='adminlistabilitiesmaster'/>
+				<entry caption='Admins' chatcmd='/admin listadmins' unique='adminadminslist'/>
+					<entry caption='...Abilities' chatcmd='/admin listabilities admin' unique='adminlistabilitiesadmin'/>
+				<entry caption='Operators' chatcmd='/admin listops' unique='adminops'/>
+					<entry caption='...Abilities' chatcmd='/admin listabilities op' unique='adminlistabilitiesop'/>
+				<entry caption='Read Lists' chatcmd='/admin readabilities' unique='adminabload'/>
+				<entry caption='Write Lists' chatcmd='/admin writeabilities' unique='adminabwrite'/>
+			</entry>
+			<entry caption='Game Mode' unique='admingamemode'>
+				<entry caption='Rounds' indicator='fufi_getGameModeIndicator' params='0' chatcmd='/admin setgamemode rounds' unique='admingmrounds'/>
+				<entry caption='Time Attack' indicator='fufi_getGameModeIndicator' params='1' chatcmd='/admin setgamemode ta' unique='admingmtimeattack'/>
+				<entry caption='Team' indicator='fufi_getGameModeIndicator' params='2' chatcmd='/admin setgamemode team' unique='admingmteam'/>
+				<entry caption='Laps' indicator='fufi_getGameModeIndicator' params='3' chatcmd='/admin setgamemode laps' unique='admingmlaps'/>
+				<entry caption='Stunts' indicator='fufi_getGameModeIndicator' params='4' chatcmd='/admin setgamemode stunts' unique='admingmstunts'/>
+				<entry caption='Cup' indicator='fufi_getGameModeIndicator' params='5' chatcmd='/admin setgamemode cup' unique='admingmcup'/>
+			</entry>
+			<entry caption='Rounds Points' dependencies='plugin.rpoints.php' unique='adminroundspoints'>
+				<entry caption='List Systems' chatcmd='/admin rpoints list' unique='adminrplist'/>
+				<entry caption='Show Current' chatcmd='/admin rpoints show' unique='adminrpshow'/>
+				<entry caption='Set System' unique='adminrpset'>
+					<entry caption='Formula 1 GP New' chatcmd='/admin rpoints f1new' unique='adminrpf1new'/>
+					<entry caption='Formula 1 GP Old' chatcmd='/admin rpoints f1old' unique='adminrpf1old'/>
+					<entry caption='MotoGP' chatcmd='/admin rpoints motogp' unique='adminrpmotogp'/>
+					<entry caption='MotoGP + 5' chatcmd='/admin rpoints motogp5' unique='adminrpmotogp5'/>
+					<entry caption='Formula ET 1' chatcmd='/admin rpoints fet1' unique='adminrpfet1'/>
+					<entry caption='Formula ET 2' chatcmd='/admin rpoints fet2' unique='adminrpfet2'/>
+					<entry caption='Formula ET 3' chatcmd='/admin rpoints fet3' unique='adminrpfet3'/>
+					<entry caption='Champ Car WS' chatcmd='/admin rpoints champcar' unique='adminrpchampcar'/>
+					<entry caption='Simple 5' chatcmd='/admin rpoints simple5' unique='adminrpsimple5'/>
+					<entry caption='Simple 10' chatcmd='/admin rpoints simple10' unique='adminrpsimple10'/>
+				</entry>
+				<entry caption='Off' chatcmd='/admin rpoints off' unique='adminrpoff'/>
+				<entry type='separator' unique='roundspointsep1'/>
+				<entry caption='Help' chatcmd='/admin rpoints help' unique='adminrphelp'/>
+			</entry>
+			<entry caption='Settings' unique='adminserver'>
+				<entry caption='Server Info' chatcmd='/admin server' unique='adminserverinfo'/>
+				<entry caption='Server Coppers' chatcmd='/admin coppers' unique='admincoppers'/>
+				<entry caption='Relays List/Master' chatcmd='/admin relays' unique='adminrelays'/>
+				<entry caption='Auto Scorepanel' indicator='fufi_getScorePanelIndicator' chatcmd='/admin scorepanel' chatcmdparams='OFF/ON' unique='adminscorepanel'/>
+				<entry caption='Rounds Finishpanel' indicator='fufi_getRoundsPanelIndicator' chatcmd='/admin roundsfinish' chatcmdparams='OFF/ON' unique='adminroundspanel'/>
+				<entry caption='Respawn Disabled' indicator='fufi_getRespawnDisabledIndicator' chatcmd='/admin disablerespawn' chatcmdparams='OFF/ON' unique='adminrespawndisabled'/>
+				<entry caption='Force Show Opponents' indicator='fufi_getForceShowAllIndicator' chatcmd='/admin forceshowall' chatcmdparams='OFF/ON' unique='adminforceshowall'/>
+				<entry caption='Challenge Download Allowed' indicator='fufi_getChallengeDownloadIndicator' chatcmd='/admin acdl' chatcmdparams='OFF/ON' unique='adminacdl'/>
+				<entry caption='Auto TimeLimit' indicator='fufi_getAutoTimeIndicator' chatcmd='/admin autotime' chatcmdparams='OFF/ON' unique='adminautotime'/>
+				<entry caption='Debugmode' indicator='fufi_getDebugModeIndicator' chatcmd='/admin debug' unique='admindebug'/>
+				<entry caption='Referee Mode' unique='adminrefmode'>
+					<entry caption='Top 3' indicator='fufi_getRefModeIndicator' params='0' chatcmd='/admin setrefmode 0' unique='adminref0'/>
+					<entry caption='All' indicator='fufi_getRefModeIndicator' params='1' chatcmd='/admin setrefmode 1' unique='adminref1'/>
+				</entry>
+			</entry>
+			<entry caption='Method Call' unique='adminmethodcall'>
+				<entry caption='List' chatcmd='/admin call list' unique='admincalllist'/>
+				<entry type='separator' unique='admincallsep1'/>
+				<entry type='help' caption='Help' chatcmd='/admin call help' unique='admincallhelp1'/>
+			</entry>
+			<entry caption='Admin PM Log' chatcmd='/admin pmlog' unique='adminpmlog'/>
+			<entry caption='Shutdown XASECO' chatcmd='/admin shutdown' unique='adminshutdown'/>
+			<entry caption='Shutdown SERVER' chatcmd='/admin shutdownall' unique='adminshutdownall'/>
+			<entry type='separator' unique='adminsep1'/>
+			<entry type='help' caption='Help' chatcmd='/admin helpall' unique='adminhelp1'/>
+		</entry>
+
+		<entry caption="JFreu" dependencies='jfreu.plugin.php' unique='jfreu'>
+			<entry caption='UnSpec Vote' chatcmd='/unspec' unique='jfreuunspec'/>
+			<entry caption='Ranklimit' chatcmd='/ranklimit' unique='jfreuranklimit'/>
+			<entry caption='Players' unique='jfreuplayers'>
+				<entry caption='All' chatcmd='/jfreu players' unique='jfreuplayerslist'/>
+				<entry caption='Live' chatcmd='/jfreu players live' unique='jfreuplayerslive'/>
+				<entry caption='Temp Bans' chatcmd='/jfreu listbans' unique='jfreulistbans'/>
+				<entry caption='VIP Players' chatcmd='/jfreu listvips' unique='jfreulistvips'/>
+				<entry caption='VIP Teams' chatcmd='/jfreu listvipteams' unique='jfreulistvipteams'/>
+				<entry caption='Read Lists' chatcmd='/jfreu readlists' unique='jfreureadlists'/>
+				<entry caption='Write Lists' chatcmd='/jfreu writelists' unique='jfreuwritelists'/>
+			</entry>
+
+			<entry caption='Rank Limiting' unique='jfreuranklimiting'>
+				<entry caption='List' chatcmd='/jfreu listlimits' unique='jfreulistlimits'/>
+				<entry caption='Enable Ranklimit' indicator='fufi_getRanklimitIndicator' chatcmd='/jfreu setrank' chatcmdparams='OFF/ON' unique='jfreusetrank'/>
+				<entry caption='Enable Autorank' indicator='fufi_getAutoRankIndicator' chatcmd='/jfreu autorank' chatcmdparams='OFF/ON' unique='jfreuautorank'/>
+				<entry caption='...Include VIPs' indicator='fufi_getAutoRankVIPIndicator' chatcmd='/jfreu autorankvip' chatcmdparams='OFF/ON' unique='jfreuautorankvip'/>
+				<entry caption='Auto Change Servername' indicator='fufi_getAutoChangeNameIndicator' chatcmd='/jfreu autochangename' chatcmdparams='OFF/ON' unique='jfreuautochangename'/>
+				<entry caption='Kick High Ranks' indicator='fufi_getKickHiRankIndicator' chatcmd='/jfreu kickhirank' chatcmdparams='OFF/ON' unique='jfreukickhirank'/>
+			</entry>
+
+			<entry caption='Settings' unique='jfreusettings'>
+				<entry caption='Badwords Bot Enabled' indicator='fufi_getBadwordsBotIndicator' chatcmd='/jfreu badwords' chatcmdparams='OFF/ON' unique='jfreubadwordsenabled'/>
+				<entry caption='Ban on Badword' indicator='fufi_getBadwordsBanIndicator' chatcmd='/jfreu badwordsban' chatcmdparams='OFF/ON' unique='jfreubadwordsban'/>
+				<entry caption='Unspec Enabled' indicator='fufi_getJFreuUnspecEnabledIndicator' chatcmd='/jfreu unspecvote' chatcmdparams='OFF/ON' unique='jfreuunspecenabled'/>
+				<entry caption='CallVotes Disabled' indicator='fufi_getJFreuVotesDisabledIndicator' chatcmd='/jfreu novote' chatcmdparams='OFF/ON' unique='jfreuvotesdisabled'/>
+				<entry caption='Cancel CallVote' chatcmd='/jfreu cancel' unique='jfreucancel'/>
+				<entry caption='Info Messages' unique='jfreuinfomsg'>
+					<entry caption='Window' indicator='fufi_getJFreuInfosIndicator' params='2' chatcmd='/jfreu infomessages 2' unique='jfreuinfos2'/>
+					<entry caption='Chat' indicator='fufi_getJFreuInfosIndicator' params='1' chatcmd='/jfreu infomessages 1' unique='jfreuinfos1'/>
+					<entry caption='Off' indicator='fufi_getJFreuInfosIndicator' params='0' chatcmd='/jfreu infomessages 0' unique='jfreuinfos0'/>
+				</entry>
+				<entry caption='Read Config' chatcmd='/jfreu readconfig' unique='jfreureadconfig'/>
+				<entry caption='Write Config' chatcmd='/jfreu writeconfig' unique='jfreuwriteconfig'/>
+			</entry>
+			<entry caption='Password' chatcmd='/password' unique='jfreupassword'/>
+			<entry caption='Message' chatcmd='/message' unique='jfreumessage'/>
+			<entry type='separator' unique='jfreuhelpsep1'/>
+			<entry type='help' caption='Help' chatcmd='/jfreu helpall' unique='jfreuhelp1'/>
+		</entry>
+		<entry caption='Tracks' unique='tracks'>
+			<entry caption='All Tracks' chatcmd='/list' unique='fulllist'/>
+			<entry caption='Not Finished' chatcmd='/list nofinish' unique='nofinish'/>
+			<entry caption='No Rank' chatcmd='/list norank' unique='norank'/>
+			<entry caption='No Goldtime' chatcmd='/list nogold' unique='nogold'/>
+			<entry caption='No Authortime' chatcmd='/list noauthor' unique='noauthor'/>
+			<entry caption='Not Recently Played' chatcmd='/list norecent' unique='norecent'/>
+			<entry type='separator' unique='tracklistsep1'/>
+			<entry caption='Best Records' chatcmd='/list best' unique='best'/>
+			<entry caption='Worst Records' chatcmd='/list worst' unique='worst'/>
+			<entry caption='Longest Tracks' chatcmd='/list longest' unique='longest'/>
+			<entry caption='Shortest Tracks' chatcmd='/list shortest' unique='shortest'/>
+			<entry caption='Newest Tracks' chatcmd='/list newest' unique='newest'/>
+			<entry caption='Oldest Tracks' chatcmd='/list oldest' unique='oldest'/>
+			<entry caption='No Vote' chatcmd='/list novote' unique='novote'/>
+			<entry caption='TMX' unique='xlistmain'>
+				<entry caption='All Tracks' chatcmd='/xlist' unique='xlist'/>
+				<entry caption='Recent Tracks' chatcmd='/xlist recent' unique='xlistrecent'/>
+				<entry type='separator' unique='xlistsep1'/>
+				<entry type='help' caption='Help' chatcmd='/xlist help' unique='xlisthelp1'/>
+			</entry>
+			<entry type='separator' unique='tracklistsep2'/>
+			<entry type='help' caption='Help' chatcmd='/list help' unique='listhelp1'/>
+		</entry>
+
+		<entry caption='Autojuke' unique='autojuke'>
+			<entry caption='Not Finished' chatcmd='/autojuke nofinish' unique='ajnofinish'/>
+			<entry caption='No Rank' chatcmd='/autojuke norank' unique='ajnorank'/>
+			<entry caption='No Goldtime' chatcmd='/autojuke nogold' unique='ajnogold'/>
+			<entry caption='No Authortime' chatcmd='/autojuke noauthor' unique='ajnoauthor'/>
+			<entry caption='Not Recently Played' chatcmd='/autojuke norecent' unique='ajnorecent'/>
+			<entry type='separator' unique='autojukesep1'/>
+			<entry caption='Longest Tracks' chatcmd='/autojuke longest' unique='ajlongest'/>
+			<entry caption='Shortest Tracks' chatcmd='/autojuke shortest' unique='ajshortest'/>
+			<entry caption='Newest Tracks' chatcmd='/autojuke newest' unique='ajnewest'/>
+			<entry caption='Oldest Tracks' chatcmd='/autojuke oldest' unique='ajoldest'/>
+			<entry caption='No Vote' chatcmd='/autojuke novote' unique='ajnovote'/>
+			<entry type='separator' unique='autojukesep2'/>
+			<entry type='help' caption='Help' chatcmd='/autojuke help' unique='ajhelp1'/>
+		</entry>
+
+		<entry caption='Jukebox' globalvariable='feature_jukebox' unique='jukebox'>
+			<entry caption='List' chatcmd='/jukebox display' unique='jukeboxdisplay'/>
+			<entry caption='History' chatcmd='/history' unique='jukeboxhistory'/>
+			<entry type='separator' unique='jukeboxsep1'/>
+			<entry type='help' caption='Help' chatcmd='/jukebox help' unique='jukeboxhelp1'/>
+		</entry>
+
+		<entry caption='Records' dependencies='chat.records.php, chat.records2.php, chat.recrels.php' unique='records'>
+			<entry caption='Local' unique='localrecords'>
+				<entry caption='All' chatcmd='/recs' unique='localall'/>
+				<entry caption='Personal Best' chatcmd='/pb' unique='localpb'/>
+				<entry caption='New Records' chatcmd='/newrecs' unique='recnew'/>
+				<entry caption='Live Records' chatcmd='/liverecs' unique='reconline'/>
+				<entry caption='First Record' chatcmd='/firstrec' unique='recfirst'/>
+				<entry caption='Last Record' chatcmd='/lastrec' unique='reclast'/>
+				<entry caption='Next Better' chatcmd='/nextrec' unique='relnext'/>
+				<entry caption='Difference' chatcmd='/diffrec' unique='reldiff'/>
+				<entry caption='Range' chatcmd='/recrange' unique='relrange'/>
+				<entry caption='CP Times' chatcmd='/cptms' dependencies='plugin.checkpoints.php' unique='cptms'/>
+				<entry caption='Sector Times' chatcmd='/sectms' dependencies='plugin.checkpoints.php' unique='sectms'/>
+				<entry type='separator' unique='localrecsep1'/>
+				<entry type='help' caption='Help' chatcmd='/recs help' unique='localrecshelp1'/>
+			</entry>
+			<entry caption='My Best' chatcmd='/best' unique='recbest'/>
+			<entry caption='My Worst' chatcmd='/worst' unique='recworst'/>
+			<entry caption='My Summary' chatcmd='/summary' unique='recsummary'/>
+			<entry caption='Summaries' chatcmd='/topsums' unique='rectopsums'/>
+			<entry caption='Dedimania' dependencies='chat.dedimania.php, plugin.dedimania.php' unique='dedimania'>
+				<entry caption='All' chatcmd='/dedirecs' unique='dedirecs'/>
+				<entry caption='Personal Best' chatcmd='/dedipb' unique='dedipb'/>
+				<entry caption='New Records' chatcmd='/dedinew' unique='dedinew'/>
+				<entry caption='Live Records' chatcmd='/dedilive' unique='dedilive'/>
+				<entry caption='First Record' chatcmd='/dedifirst' unique='dedifirst'/>
+				<entry caption='Last Record' chatcmd='/dedilast' unique='dedilast'/>
+				<entry caption='Next Better' chatcmd='/dedinext' unique='dedinext'/>
+				<entry caption='Difference' chatcmd='/dedidiff' unique='dedidiff'/>
+				<entry caption='Range' chatcmd='/dedirange' unique='dedirange'/>
+				<entry caption='CP Times' chatcmd='/dedicptms' unique='dedicptms'/>
+				<entry caption='Sector Times' chatcmd='/dedisectms' unique='dedisectms'/>
+				<entry caption='Stats' chatcmd='/dedistats' unique='dedistats'/>
+				<entry type='separator' unique='dedisep1'/>
+				<entry type='help' caption='Help' chatcmd='/dedirecs help' unique='dedihelp1'/>
+			</entry>
+				<entry caption='TMX Records' chatcmd='/tmxrecs' dependencies='plugin.tmxinfo.php' unique='tmxrecords'/>
+		</entry>
+		<entry caption='Players' dependencies='chat.players.php, chat.players2.php' unique='players'>
+			<entry caption='All' chatcmd='/players' unique='onlineplayers'/>
+			<entry caption='Ranks' chatcmd='/ranks' unique='onlineranks'/>
+			<entry caption='Clans' chatcmd='/clans' unique='onlineclans'/>
+			<entry caption='Top 100 Active' dependencies='plugin.rasp.php' chatcmd='/active' unique='raspactive'/>
+			<entry caption='Top 100 Ranks' dependencies='plugin.rasp.php' chatcmd='/top100' unique='rasptop100'/>
+			<entry caption='Top 100 Records' dependencies='chat.records.php, chat.records2.php, chat.recrels.php' chatcmd='/toprecs' unique='rectoprecs'/>
+			<entry caption='Top 100 Winners' dependencies='plugin.rasp.php' chatcmd='/topwins' unique='rasptopwins'/>
+			<entry caption='Top 100 Donators' dependencies='plugin.donate.php' chatcmd='/topdons' unique='topdons'/>
+			<entry caption='Top Clans' chatcmd='/topclans' unique='topclans'/>
+			<entry caption='My Mutes' dependencies='plugin.muting.php' chatcmd='/mutelist' unique='mutelist'/>
+		</entry>
+		<entry caption='Votes' dependencies='plugin.rasp_votes.php' globalvariable='feature_votes' unique='votes'>
+			<entry caption='End Round' chatcmd='/endround' unique='votesendround'/>
+			<entry caption='Ladder Restart' chatcmd='/ladder' unique='votesladder'/>
+			<entry caption='Replay Track' chatcmd='/replay' unique='votesreplay'/>
+			<entry caption='Skip Track' chatcmd='/skip' unique='votesskip'/>
+			<entry caption='Cancel Vote' chatcmd='/cancel' unique='votescancel'/>
+			<entry type='separator' unique='voteshelpsep1'/>
+			<entry type='help' caption='Help' chatcmd='/helpvote' unique='voteshelp1'/>
+		</entry>
+		<entry caption='Music' dependencies='plugin.musicserver.php' unique='music'>
+			<entry caption='List' chatcmd='/music list' unique='musiclist'/>
+			<entry caption='Jukebox' chatcmd='/music jb' unique='musicjb'/>
+			<entry caption='Drop Song' chatcmd='/music drop' unique='musicdrop'/>
+			<entry caption='Current Song' chatcmd='/music current' unique='musiccurrent'/>
+			<entry caption='Settings' chatcmd='/music settings' unique='musicsettings'/>
+			<entry caption='Administration' ability='chat_musicadmin' unique='musicadmin'>
+				<entry caption='Reload' chatcmd='/music reload' unique='musicreload'/>
+				<entry caption='Next' chatcmd='/music next' unique='musicnext'/>
+				<entry caption='Sort' chatcmd='/music sort' unique='musicsort'/>
+				<entry caption='Shuffle' chatcmd='/music shuffle' unique='musicshuffle'/>
+				<entry type='separator' unique='musicadminsep1'/>
+				<entry caption='Track Override' indicator='fufi_getMusicOverrideIndicator' chatcmd='/music override' chatcmdparams='off/on' unique='musicoverride'/>
+				<entry caption='AutoNext' indicator='fufi_getMusicAutonextIndicator' chatcmd='/music autonext' chatcmdparams='off/on' unique='musicautonext'/>
+				<entry caption='AutoShuffle' indicator='fufi_getMusicAutoshuffleIndicator' chatcmd='/music autoshuffle' chatcmdparams='off/on' unique='musicautoshuffle'/>
+				<entry caption='Allow Jukebox' indicator='fufi_getMusicJukeboxIndicator' chatcmd='/music allowjb' chatcmdparams='off/on' unique='musicallowjb'/>
+				<entry caption='Strip Subdirs' indicator='fufi_getMusicStripDirsIndicator' chatcmd='/music stripdirs' chatcmdparams='off/on' unique='musicstripdirs'/>
+				<entry caption='Strip Extensions' indicator='fufi_getMusicStripExtsIndicator' chatcmd='/music stripexts' chatcmdparams='off/on' unique='musicstripexts'/>
+				<entry caption='Shutdown Plugin' chatcmd='/music off' unique='musicshutdown'/>
+			</entry>
+			<entry type='separator' unique='musicsep1'/>
+			<entry type='help' caption='Help' chatcmd='/music help' unique='musichelp1'/>
+		</entry>
+		<entry caption='Customize HUD' unique='custommenu'>
+			<entry caption='Checkpoint Tracking' indicator='fufi_getCPSIndicator' chatcmd='/cps' chatcmdparams='off/' dependencies='plugin.checkpoints.php' unique='cps'/>
+			<entry caption='Dedimania CP Tracking' indicator='fufi_getDediCPSIndicator' chatcmd='/dedicps' chatcmdparams='off/' dependencies='chat.dedimania.php' unique='dedicps'/>
+			<entry caption='Spectator CP Tracking' indicator='fufi_getCPSSpecIndicator' chatcmd='/cpsspec' dependencies='plugin.checkpoints.php' unique='cpsspec'/>
+			<entry caption='Style' dependencies='plugin.style.php' unique='stylemenu'>
+				<entry caption='List' chatcmd='/style list' unique='stylelist'/>
+				<entry caption='Default' chatcmd='/style default' unique='styledefault'/>
+				<entry caption='Off' chatcmd='/style off' unique='styleoff'/>
+				<entry type='separator' unique='stylesep1'/>
+				<entry type='help' caption='Help' chatcmd='/style help' unique='stylehelp1'/>
+			</entry>
+			<entry caption='Records Panel' dependencies='plugin.panels.php' unique='recpanel'>
+				<entry caption='List' chatcmd='/recpanel list' unique='recpanellist'/>
+				<entry caption='Default' chatcmd='/recpanel default' unique='recpaneldefault'/>
+				<entry caption='Off' chatcmd='/recpanel off' unique='recpaneloff'/>
+				<entry type='separator' unique='recpanelsep1'/>
+				<entry type='help' caption='Help' chatcmd='/recpanel help' unique='recpanelhelp1'/>
+			</entry>
+			<entry caption='Vote Panel' dependencies='plugin.panels.php' unique='votepanel'>
+				<entry caption='List' chatcmd='/votepanel list' unique='votepanellist'/>
+				<entry caption='Default' chatcmd='/votepanel default' unique='votepaneldefault'/>
+				<entry caption='Off' chatcmd='/votepanel off' unique='votepaneloff'/>
+				<entry type='separator' unique='votepanelsep1'/>
+				<entry type='help' caption='Help' chatcmd='/votepanel help' unique='votepanelhelp1'/>
+			</entry>
+			<entry caption='Donate Panel' dependencies='plugin.panels.php' rights='TMUF' unique='donpanel'>
+				<entry caption='List' chatcmd='/donpanel list' unique='donpanellist'/>
+				<entry caption='Default' chatcmd='/donpanel default' unique='donpaneldefault'/>
+				<entry caption='Off' chatcmd='/donpanel off' unique='donpaneloff'/>
+				<entry type='separator' unique='donpanelsep1'/>
+				<entry type='help' caption='Help' chatcmd='/donpanel help' unique='donpanelhelp1'/>
+			</entry>
+			<entry caption='Admin Panel' dependencies='plugin.panels.php' ability='panel' unique='adminpanel'>
+				<entry caption='List' chatcmd='/admin panel list' unique='adminpanellist'/>
+				<entry caption='Default' chatcmd='/admin panel default' unique='adminpaneldefault'/>
+				<entry caption='Off' chatcmd='/admin panel off' unique='adminpaneloff'/>
+				<entry type='separator' unique='adminpanelsep1'/>
+				<entry type='help' caption='Help' chatcmd='/admin panel help' unique='adminpanelhelp1'/>
+			</entry>
+		</entry>
+		<entry caption='Info' unique='infomenu'>
+			<entry caption='Personal' unique='personalinfo'>
+				<entry caption='My Stats' chatcmd='/stats' dependencies='chat.stats.php' unique='mystats'/>
+				<entry caption='My Wins' chatcmd='/wins' dependencies='chat.wins.php' unique='mywins'/>
+				<entry caption='My Settings' chatcmd='/settings' dependencies='chat.stats.php' unique='mysettings'/>
+				<entry caption='Current Rank' dependencies='plugin.rasp.php' chatcmd='/rank' unique='rasprank'/>
+				<entry caption='Next Rank' chatcmd='/nextrank' dependencies='plugin.rasp_nextrank' unique='raspnextrank'/>
+				<entry caption='Last Window' chatcmd='/lastwin' dependencies='chat.lastwin.php' unique='lastwin'/>
+			</entry>
+			<entry caption='Track' unique='trackinfo'>
+				<entry caption='Playtime' chatcmd='/playtime' dependencies='plugin.track.php' unique='playtime'/>
+				<entry caption='Current Track' chatcmd='/track' dependencies='plugin.track.php' unique='currenttrackinfo'/>
+				<entry caption='Next Track' chatcmd='/nextmap' dependencies='plugin.rasp_nextmap.php' unique='shownext'/>
+				<entry caption='TMX Info' chatcmd='/tmxinfo' dependencies='plugin.tmxinfo.php' unique='tmxinfo'/>
+				<entry caption='Track Song' chatcmd='/song url' dependencies='chat.songmod.php' unique='song'/>
+				<entry caption='Track Mod' chatcmd='/mod url' dependencies='chat.songmod.php' unique='mod'/>
+				<entry caption='Track Karma' dependencies='plugin.rasp_karma.php' globalvariable='feature_karma' chatcmd='/karma' unique='karma'/>
+			</entry>
+			<entry caption='Logs' unique='logsinfo'>
+				<entry caption='Chat Log' chatcmd='/chatlog' dependencies='plugin.chatlog.php' unique='chatlog'/>
+				<entry caption='Message Log' chatcmd='/msglog' dependencies='plugin.msglog.php' unique='msglog'/>
+				<entry caption='My PM Log' chatcmd='/pmlog' dependencies='plugin.rasp_chat.php' unique='pmlog'/>
+			</entry>
+			<entry caption='Server' unique='serverinfo'>
+				<entry caption='Details' chatcmd='/server' dependencies='chat.server.php' unique='serverfullinfo'/>
+				<entry caption='Rounds Points' chatcmd='/rpoints' dependencies='plugin.rpoints.php' unique='rpoints'/>
+				<entry caption='XASECO' chatcmd='/xaseco' dependencies='chat.server.php' unique='xaseco'/>
+				<entry caption='Plugins' chatcmd='/plugins' dependencies='chat.server.php' unique='plugins'/>
+				<entry caption='Date/Time' chatcmd='/time' dependencies='plugin.track.php' unique='time'/>
+			</entry>
+			<entry caption='Nations' chatcmd='/nations' dependencies='chat.server.php' unique='nationsinfo'/>
+		</entry>
+		<entry caption='Donate' dependencies='plugin.donate.php' rights='TMUF' unique='donate'>
+			<entry caption='10 Coppers' chatcmd='/donate 10' unique='don10'/>
+			<entry caption='25 Coppers' chatcmd='/donate 25' unique='don25'/>
+			<entry caption='50 Coppers' chatcmd='/donate 50' unique='don50'/>
+			<entry caption='75 Coppers' chatcmd='/donate 75' unique='don75'/>
+			<entry caption='100 Coppers' chatcmd='/donate 100' unique='don100'/>
+			<entry caption='150 Coppers' chatcmd='/donate 150' unique='don150'/>
+			<entry caption='200 Coppers' chatcmd='/donate 200' unique='don200'/>
+			<entry caption='500 Coppers' chatcmd='/donate 500' unique='don500'/>
+			<entry caption='1000 Coppers' chatcmd='/donate 1000' unique='don1000'/>
+			<entry caption='2000 Coppers' chatcmd='/donate 2000' unique='don2000'/>
+		</entry>
+
+		<entry caption='Match' dependencies='plugin.matchsave.php' unique='match'>
+			<entry caption='Standings' chatcmd='/standings' unique='matchstandings'/>
+			<entry caption='Administration' ability='chat_match' unique='matchadmin'>
+				<entry caption='Plugin Enabled' indicator='fufi_getMatchEnabledIndicator' chatcmd='/match' chatcmdparams='off/on' unique='matchenabled'/>
+				<entry caption='Settings' unique='matchsettings'>
+					<entry caption='Others Score' indicator='fufi_getMatchOthersIndicator' chatcmd='/match others' chatcmdparams='off/on' unique='matchothers'/>
+					<entry caption='Teamforce' indicator='fufi_getMatchTeamforceIndicator' chatcmd='/match force' chatcmdparams='off/on' unique='matchforce'/>
+					<entry caption='Teamchat' indicator='fufi_getMatchTeamchatIndicator' chatcmd='/match tc' chatcmdparams='off/on' unique='matchchat'/>
+				</entry>
+				<entry caption='Lists' unique='matchlists'>
+					<entry caption='Teams' chatcmd='/match teams' unique='matchteams'/>
+					<entry caption='Players' chatcmd='/match players' unique='matchplayers'/>
+					<entry caption='Playlists' chatcmd='/match list' unique='matchplaylists'/>
+				</entry>
+				<entry type='separator' unique='matchsep1'/>
+				<entry caption='Start Match' unique='matchstart'>
+					<entry caption='Rounds' unique='msrounds'>
+						<entry caption='1 Round' chatcmd='/match start 1' unique='msrounds1'/>
+						<entry caption='2 Rounds' chatcmd='/match start 2' unique='msrounds2'/>
+						<entry caption='3 Rounds' chatcmd='/match start 3' unique='msrounds3'/>
+						<entry caption='4 Rounds' chatcmd='/match start 4' unique='msrounds4'/>
+						<entry caption='5 Rounds' chatcmd='/match start 5' unique='msrounds5'/>
+					</entry>
+					<entry caption='Pointlimit' unique='mspoints'>
+						<entry caption='12 Points' chatcmd='/match start pl 12' unique='mspoints12'/>
+						<entry caption='22 Points' chatcmd='/match start pl 22' unique='mspoints22'/>
+						<entry caption='32 Points' chatcmd='/match start pl 32' unique='mspoints32'/>
+						<entry caption='42 Points' chatcmd='/match start pl 42' unique='mspoints42'/>
+						<entry caption='52 Points' chatcmd='/match start pl 52' unique='mspoints52'/>
+					</entry>
+				</entry>
+				<entry caption='Start AutoMatch' unique='matchauto'>
+					<entry caption='Rounds' unique='msarounds'>
+						<entry caption='1 Round' chatcmd='/match auto 1' unique='msarounds1'/>
+						<entry caption='2 Rounds' chatcmd='/match auto 2' unique='msarounds2'/>
+						<entry caption='3 Rounds' chatcmd='/match auto 3' unique='msarounds3'/>
+						<entry caption='4 Rounds' chatcmd='/match auto 4' unique='msarounds4'/>
+						<entry caption='5 Rounds' chatcmd='/match auto 5' unique='msarounds5'/>
+					</entry>
+					<entry caption='Pointlimit' unique='msapoints'>
+						<entry caption='12 Points' chatcmd='/match auto pl 12' unique='msapoints12'/>
+						<entry caption='22 Points' chatcmd='/match auto pl 22' unique='msapoints22'/>
+						<entry caption='32 Points' chatcmd='/match auto pl 32' unique='msapoints32'/>
+						<entry caption='42 Points' chatcmd='/match auto pl 42' unique='msapoints42'/>
+						<entry caption='52 Points' chatcmd='/match auto pl 52' unique='msapoints52'/>
+					</entry>
+				</entry>
+				<entry caption='End Match' chatcmd='/match end' unique='matchend'/>
+				<entry type='separator' unique='matchhelpsep2'/>
+				<entry type='help' caption='Help' chatcmd='/match help' unique='mahelp1'/>
+			</entry>
+			<entry type='separator' unique='matchhelpsep1'/>
+			<entry type='help' caption='Help' chatcmd='/team help' unique='matchhelp1'/>
+		</entry>
+
+		<entry type='separator' unique='mainhelpsep'/>
+		<entry type='help' caption='Help' unique='helpgroup'>
+			<entry type='help' caption='Main' chatcmd='/helpall' dependencies='chat.help.php' unique='mainhelp'/>
+			<entry type='help' caption='Admin' chatcmd='/admin helpall' ability='helpall' unique='adminhelp'/>
+			<entry type='help' caption='JFreu' dependencies='jfreu.chat.php' chatcmd='/jfreu helpall' unique='jfreuhelp'/>
+			<entry type='help' caption='Tracks' chatcmd='/list help' unique='listhelp'/>
+			<entry type='help' caption='TMX Search' chatcmd='/xlist help' unique='xlisthelp'/>
+			<entry type='help' caption='Autojuke' globalvariable='feature_jukebox' chatcmd='/autojuke help' unique='ajhelp'/>
+			<entry type='help' caption='Jukebox' globalvariable='feature_jukebox' chatcmd='/jukebox help' unique='jukeboxhelp'/>
+			<entry type='help' caption='Local Recs' chatcmd='/recs help' unique='localrecshelp'/>
+			<entry type='help' caption='Dedimania Recs' chatcmd='/dedirecs help' dependencies='chat.dedimania.php, plugin.dedimania.php' unique='dedirecshelp'/>
+			<entry type='help' caption='Dedimania Info' chatcmd='/helpdedi' dependencies='chat.dedimania.php, plugin.dedimania.php' unique='dedihelp'/>
+			<entry type='help' caption='Vote' dependencies='plugin.rasp_votes.php' chatcmd='/helpvote' unique='voteshelp'/>
+			<entry type='help' caption='Music' dependencies='plugin.musicserver.php' chatcmd='/music help' unique='musichelp'/>
+			<entry type='help' caption='Style' chatcmd='/style help' dependencies='plugin.style.php' unique='stylehelp'/>
+			<entry type='help' caption='Records Panel' dependencies='plugin.panels.php' chatcmd='/recpanel help' unique='recpanelhelp'/>
+			<entry type='help' caption='Vote Panel' dependencies='plugin.panels.php' chatcmd='/votepanel help' unique='votepanelhelp'/>
+			<entry type='help' caption='Donate Panel' dependencies='plugin.panels.php' chatcmd='/donpanel help' unique='donpanelhelp'/>
+			<entry type='help' caption='Admin Panel' dependencies='plugin.panels.php' ability='panel' chatcmd='/admin panel help' unique='adminpanelhelp'/>
+			<entry type='help' caption='Access Control' dependencies='plugin.access.php' ability='access' chatcmd='/admin access help' unique='adminaccesshelp'/>
+			<entry type='help' caption='Rounds Points' dependencies='plugin.rpoints.php' ability='rpoints' chatcmd='/admin rpoints help' unique='adminrpointshelp'/>
+			<entry type='help' caption='Method Call' ability='call' chatcmd='/admin call help' unique='admincallhelp'/>
+			<entry type='help' caption='Match' dependencies='plugin.matchsave.php' chatcmd='/team help' unique='matchhelp'/>
+			<entry type='help' caption='Match Admin' ability='chat_match' dependencies='plugin.matchsave.php' chatcmd='/team help' unique='mahelp'/>
+			<entry type='separator' unique='mainhelpsep1'/>
+			<entry caption='Leave Server' chatcmd='/bootme' unique='bootme'/>
+		</entry>
+
+	</entries>
+</settings>

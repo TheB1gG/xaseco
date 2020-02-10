@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+	
+	<!-- The time interval in which the plugin checks for "kickable" players-->
+	<kickinterval>0</kickinterval> <!-- seconds, 0 to deactivate overall idle kicking -->
+
+	<!-- Time, until an idle player is kicked
+		A player is set active if he does one of the following things:
+			* pass a checkpoint
+			* write a chat line
+			* finish a race
+			* click a manialink-->
+	<idletime>360</idletime> <!-- seconds, 0 to deactivate idle kicker -->
+	
+	<!-- The same like the beforementioned, but for spectators,
+		This functionality won't kick players that are waiting in the queue-->
+	<unqueued_spec_idletime>600</unqueued_spec_idletime> <!-- seconds, 0 to deactivate idle kicker -->
+	
+	<!-- Maximum number of players kicked after a race is finished (the plugin takes the ranking and
+		kicks the worst players -->
+	<kickworst>2</kickworst>
+
+	<!-- if enough spectator-slot available requeue players instead of kicking them -->
+	<kicktospec>true</kicktospec>
+	
+	<!-- Determines whether admins can be automatically kicked or not -->
+	<kickadmins>false</kickadmins>
+	
+	<!-- set true to use ManiaLink display and buttons instead of chat display and chat commands -->
+	<use_manialinks>true</use_manialinks>
+	
+	<!-- Some strings for the chat output-->
+	<str_forbidden>Sorry, you don't have enough ladderpoints to join the race.</str_forbidden>
+	<str_queuepos>You are now at position $0ff%queuepos% $fffin the queue. To get out of the queue, type $0ff/unqueue$fff.</str_queuepos>
+	<str_specmode>You put yourself to spectator mode. Type $0ff/queue $fffto get back in.</str_specmode>	
+	<str_unqueue>You removed yourself from the queue. Type $0ff/queue $fffto get back in.</str_unqueue>	
+	<str_drive>You got a free spot. Have fun driving!</str_drive>
+	<str_kick_spec>Kicked unqueued spectator after $0ff%time%$fff: %nick%</str_kick_spec>
+	<str_kick_idle>Kicked idle player after $0ff%time%$fff: %nick%</str_kick_idle>
+	<str_kick_worst>Kicked worst player: %nick%</str_kick_worst>
+	<str_kick_tospec>Requeued worst player: %nick%</str_kick_tospec>
+	
+	<!-- Some strings for the manialink output -->
+	<str_ml_queuepos>Queue position: $0ff%queuepos% $fff(click to leave the queue)</str_ml_queuepos>
+	<str_ml_specmode>$0ffClick here to play! $fff(join the queue)</str_ml_specmode>	
+	<str_ml_drive>You got a free spot. Have fun driving!</str_ml_drive>
+	
+	<buttonxml>
+	 	<quad sizen="35 4" posn="0 -27.5 22.9" valign="center" halign="center" style="Bgs1" substyle="BgTitle3"/>
+		<quad sizen="34 3" posn="0 -27.5 23"  valign="center" halign="center" style="BgsPlayerCard" substyle="BgCardSystem" action="%action%"/><format textsize="2"/>
+		<label sizen="30 3" posn="0 -27.3 23.1" valign="center" halign="center" text="$s%text%"/>
+		<format textsize="0"/>
+		<label sizen="30 3" posn="17 -29.7 23.1" halign="right" text="$s$bbbAutoQueue v%version%"/>
+	</buttonxml>
+	
+	<listconfig>
+		<autoshow>true</autoshow>
+		<title>Queue</title>
+		<style>Bgs1</style>
+		<substyle>BgTitle3</substyle>
+		<highlitestyle>BgsPlayerCard</highlitestyle>
+		<highlitesubstyle>BgCardSystem</highlitesubstyle>
+		<posx>12</posx>
+		<posy>-34.3</posy>
+		<rows>7</rows>
+		<maxcols>2</maxcols>
+		<maxwidth>25</maxwidth>
+		<scale>0.77</scale>
+	</listconfig>
+	
+	
+</settings>

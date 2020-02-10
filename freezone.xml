@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<freezone>
+  <webservices>
+    <password></password> <!-- Your webservices password -->
+    
+    <!-- Optional settings -->
+    <testmode>false</testmode> <!-- Disables requests to webservices -->
+    <debuginfo>true</debuginfo> <!-- Creates the file freezone.log in XAseco main directory with webservices responses -->
+    
+    <!-- Development settings -->
+    <debugmode>false</debugmode> <!-- Please don't use this! -->
+    <user></user> <!-- You don't need to set this! Only for testing purpose! -->
+  </webservices>
+  
+  <button>
+    <background_style>BgsPlayerCard</background_style>
+    <background_substyle>BgPlayerCardBig</background_substyle>
+    <pos_x>-70</pos_x>
+    <pos_y>-10.3</pos_y>
+    <score>
+      <pos_x>-666</pos_x>
+      <pos_y>10.3</pos_y>
+    </score>
+  </button>
+  
+  <searchupdates>true</searchupdates>
+  
+  <notify>
+    <enable>0</enable> <!-- Notify all players in chat if a player gets muted/unmuted by freezone? = = disabled, 1 = chat, 2 = in window-->
+    <messages>
+      <mute>{#server}>> {#highlite}{1}$z{#grey} got muted for this round because of freezone limitations.</mute>
+      <unmute>{#server}>> {#highlite}{1}$z{#grey} got unmuted again.</unmute>
+    </messages>
+  </notify>
+  
+</freezone>

@@ -1,0 +1,6 @@
+<frame posn="44.3 32.5 0">
+<quad posn="0 0 0" sizen="4.6 6.5" style="BgsPlayerCard" substyle="BgCardSystem" action="9000"></quad>
+<quad posn="1 0 1" sizen="3 3.5" style="Icons128x128_1" substyle="Race"></quad>
+<label posn="2.3 -3.3 0.1" sizen="3.65 2" halign="center"  textsize="1" scale="0.9" textcolor="FFFF" text="HIDE"></label>
+<label posn="2.3 -4.9 0.1" sizen="6.65 2" halign="center"  textsize="1" scale="0.6" textcolor="FC0F" text="BESTCPS"></label>
+</frame>

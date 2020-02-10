@@ -1,0 +1,45 @@
+<!--start_header-->
+<?xml version="1.0" encoding="UTF-8"?>
+<manialinks>
+  <manialink id='%menuid%'>
+    <frame posn="%framepos%">
+<!--end_header-->
+
+<!--start_menubutton-->
+	<quad sizen="%size%" posn="%pos%" style="%style%" substyle="%substyle%" action='%action%'/>
+	<format textsize='1'/>
+	<label sizen="%size%" posn="%poslabel%" valign='center' halign='center' text='$s%text%'/>
+<!--end_menubutton-->
+
+<!--start_menuentry-->
+	<quad sizen="%width% %height%" posn="0 %y% 23.1" style="%style%" substyle="%substyle%" action='%action%'/>
+	<format textsize='1'/>
+	<label sizen="%lblwidth% %height%" posn="2 %labely% 23.2" valign='center' halign='left' text='%caption%'/>
+<!--end_menuentry-->
+
+<!--start_menuwindowcaption-->
+	<format textsize='1'/>
+	<label sizen="%lblwidth% %height%" posn="0.5 %labely% 23.1" valign='center' halign='left' text='$o%caption%'/>
+<!--end_menuwindowcaption-->
+
+<!--start_menuwindow-->
+	<quad sizen="%size%" posn="%pos%" style="%style%" substyle="%substyle%"/>
+<!--end_menuwindow-->
+
+<!--start_indicator-->
+	<quad sizen="1.8 1.8" posn="%indx% %y% 23.98" style="%style%" substyle="%substyle%"/>
+<!--end_indicator-->
+
+<!--start_icon-->
+	<quad sizen="1.8 1.8" posn="%x% %y% 23.5" style="%style%" substyle="%substyle%"/>
+<!--end_icon-->
+
+<!--start_close-->
+	<quad sizen="1.5 1.5" halign="center" valign="center" posn="%pos% 24" style="Icons64x64_1" substyle="Close" action="%action%"/>
+<!--end_close-->
+
+<!--start_footer-->
+    </frame>
+  </manialink>
+</manialinks>
+<!--end_footer-->

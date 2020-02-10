@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<alternate_scoretable>
+
+	<!--	Set to 'True' if you want to display the Alternate-Scoretable		-->
+	<!--	after the Player has finished the Map, otherwise set 'False'		-->
+	<show_at_finish>true</show_at_finish>
+
+
+	<!--	How long should the Alternate-Scoretable displayed at EndOfRace?	-->
+	<!--	Min. value is 15 Seconds						-->
+	<score_display_time>20</score_display_time>
+
+
+	<!-- Delay to wait before display the Scoretable at Score -->
+	<delay_score_display>5</delay_score_display>
+
+
+	<!-- Delay to wait before display the Scoretable after crossing the finishline -->
+	<delay_finish_display>3</delay_finish_display>
+
+
+	<!-- Setup the formatting of numbers (e.g. Amount of Planets, Won...), pick on of the following:
+		'english'	= 1,234.56
+		'german'	= 1.234,56
+		'french'	= 1 234,56
+	-->
+	<number_format>german</number_format>
+
+
+	<!-- Position for the Window -->
+	<window>
+		<race>
+			<pos_x>-40.1</pos_x>
+			<pos_y>30.45</pos_y>
+		</race>
+
+		<score>
+			<pos_x>-40.1</pos_x>
+			<pos_y>31.45</pos_y>
+		</score>
+	</window>
+
+
+	<!-- The PlayerPlacesWidget -->
+	<player_places_widget>
+		<enabled>true</enabled>				<!-- Set to 'true' if you want to display the PlayerPlacesWidget (and disable the in-game one), otherwise set 'false' -->
+		<timeout>5</timeout>
+
+		<pos_x>-43</pos_x>
+		<pos_y>-28</pos_y>
+
+		<textsize>2</textsize>
+		<textcolor>
+			<default>0B3</default>			<!-- For 'Player XYZ reached the N. Place!' -->
+			<secured>0BF</secured>			<!-- For 'Player XYZ secured his/her N. Place!' -->
+			<highlite>FFF</highlite>
+		</textcolor>
+	</player_places_widget>
+
+
+	<!--	For lazy Players enable the Quicklink-Button				-->
+	<!--	Placed by default just above the Chat as a small Checkered-Flag		-->
+	<quicklink_button>
+		<enabled>false</enabled>
+
+		<widget_position_x>-52.5</widget_position_x>
+		<widget_position_y>-28.5</widget_position_y>
+	</quicklink_button>
+
+
+	<!-- If you want the colored image bars, then set 'external', 'internal' for only in-game graphics or 'minimal' for without colored bars -->
+	<graphic_mode>external</graphic_mode>
+
+	<!-- Colors for the Bar and Background in 'internal' graphic mode, Format: RGBA (A = Alphachanal, Opacity) -->
+	<colors>
+		<background>000A</background>
+
+		<bar_gold>EB5C</bar_gold>
+		<bar_silver>DDDC</bar_silver>
+		<bar_bronze>DA6C</bar_bronze>
+		<bar_default>CCAC</bar_default>
+		<bar_norank>AAAC</bar_norank>
+		<bar_blank>888C</bar_blank>
+		<bar_team_blue>03DC</bar_team_blue>
+		<bar_team_red>D30C</bar_team_red>
+	</colors>
+
+
+	<!--	Urls for the Bar's in the Alternate-Scoretable				-->
+	<!--	If you want, you can host this Bar's at your own Website, just		-->
+	<!--	copy the images from one of this hoster.				-->
+	<urls>
+		<!--	This Bar-Images are licensed by undef.de under a				-->
+		<!--	Creative Commons Attribution-Share Alike 3.0 Germany License.			-->
+		<!--	See the following links for details:						-->
+		<!--	German:		http://creativecommons.org/licenses/by-sa/3.0/de/legalcode	-->
+		<!--	English:	http://creativecommons.org/licenses/by-sa/3.0/legalcode		-->
+
+		<bar_gold>http://static.undef.name/ingame/alternate-scoretable/bar_gold.png</bar_gold>
+		<bar_silver>http://static.undef.name/ingame/alternate-scoretable/bar_silver.png</bar_silver>
+		<bar_bronze>http://static.undef.name/ingame/alternate-scoretable/bar_bronze.png</bar_bronze>
+		<bar_default>http://static.undef.name/ingame/alternate-scoretable/bar_ranked.png</bar_default>
+		<bar_norank>http://static.undef.name/ingame/alternate-scoretable/bar_unranked.png</bar_norank>
+		<bar_blank>http://static.undef.name/ingame/alternate-scoretable/bar_blank.png</bar_blank>
+		<bar_team>http://static.undef.name/ingame/alternate-scoretable/bar_team.png</bar_team>
+	</urls>
+
+</alternate_scoretable>

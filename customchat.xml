@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+	<badwords_filter>false</badwords_filter>
+	<badwords_list>fuck,shit</badwords_list>
+	<badword_replace>*sensored*</badword_replace>
+	<chat_format>$z$s{#nick} $z$s$fff{#chat}</chat_format>
+</settings>
