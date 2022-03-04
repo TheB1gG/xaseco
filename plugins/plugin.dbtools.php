@@ -1077,7 +1077,7 @@ function chat_dbtools($aseco, $command, $schedule=false)
 											{
 												if ($filetime < (time()-($dbtools['settings']['ftp_prune_after']*86400)))
 												{
-													dbtools_chat($aseco, 'Pruning '.basename($file).'...', $command['author']->login, true);
+													dbtools_chat($aseco, 'Pruning '.basename($remotefile).'...', $command['author']->login, true);
 													ftp_delete ($connection_id , $dbtools['settings']['ftp_directory'].'/'.$remotefile);
 												}
 											}

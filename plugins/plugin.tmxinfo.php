@@ -227,6 +227,7 @@ function chat_tmxrecs($aseco, $command) {
 				}
 			}
 		} else {
+			$tid = $command['params'][0];
 			$message = '{#server}> {#highlite}' . $tid . '{#error} is not a valid Track/TMX ID!';
 			$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
 			return;

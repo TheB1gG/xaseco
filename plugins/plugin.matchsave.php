@@ -810,7 +810,7 @@ function checkTables() {
 }  // checkTables
 
 function executeTeamForce($aseco) {
-	global $MatchSettings;
+	global $MatchSettings, $teamForceTeams;
 
 	foreach ($aseco->server->players->player_list as $player) {
 		$team = $MatchSettings['defaultTeam'];

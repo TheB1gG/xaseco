@@ -13,70 +13,74 @@ Aseco::registerEvent('onEndRace', 'customtimelimit');
 Aseco::addChatCommand('timeset', 'Sets custom timelimit for next track');
 
 
-function chat_timeset($aseco, $command) {
-global $TimeAdmins;
-$player = $command['author'];
-$login = $player->login;
-$TimeAdmins = array("the-big-gll.");  // ADMINIT
-if (!in_array($login,$TimeAdmins) ) return; // if you are not admin, bail out
-		
-	global $CustomTimeLimit;
-	if (trim($command['params']) != "") 
-	{
-	$challenge_now = get_trackinfo($aseco,0); // get current challenge info 
-	$uid = $challenge_now->uid;
+function chat_timeset($aseco, $command)
+{
+    global $TimeAdmins;
+    $player = $command['author'];
+    $login = $player->login;
+    $TimeAdmins = array("the-big-gll.");  // ADMINIT
+    if (!in_array($login, $TimeAdmins)) return; // if you are not admin, bail out
 
-	
-	}
-	$message = "Admin sets current tracktime to ".trim($command['params']."min");
-	$aseco->client->query("ChatSendServerMessage", $message);
-		
+    global $CustomTimeLimit;
+    if (trim($command['params']) != "") {
+        $challenge_now = get_trackinfo($aseco, 0); // get current challenge info
+        $uid = $challenge_now->uid;
+
+
+    }
+    $message = "Admin sets current tracktime to " . trim($command['params'] . "min");
+    $aseco->client->query("ChatSendServerMessage", $message);
+
 }
 
-function chat_trackinfo($aseco, $command) {
-$nextChallenge = get_trackinfo($aseco,1);
-$uid=$nextChallenge['uid'];
-}
-$result=""
-function customtimelimit($aseco, $data) {
-$Challenge = get_trackinfo($aseco,1); // get next challenge info 
-
-$timelimit = split(":",trim($result[0]['tracktime']));
-$CustomTimeLimit=(($timelimit[0] * 60) + $timelimit[1])*1000;
-
-$newtime = $CustomTimeLimit;
-$aseco->client->addcall('SetTimeAttackLimit', array($newtime));
+function chat_trackinfo($aseco, $command)
+{
+    $nextChallenge = get_trackinfo($aseco, 1);
+    $uid = $nextChallenge['uid'];
 }
 
-function get_trackinfo($aseco, $offset) {
+$result = "";
+function customtimelimit($aseco, $data)
+{
+    $Challenge = get_trackinfo($aseco, 1); // get next challenge info
 
-	// get current/next track using /nextmap algorithm
-	if ($aseco->server->getGame() != 'TMF') {
-		$aseco->client->query('GetCurrentChallengeIndex');
-		$trkid = $aseco->client->getResponse();
-		$trkid += $offset;
-		$aseco->client->resetError();
-		$rtn = $aseco->client->query('GetChallengeList', 1, $trkid);
-		$track = $aseco->client->getResponse();
-		if ($aseco->client->isError()) {
-			// get first track
-			$rtn = $aseco->client->query('GetChallengeList', 1, 0);
-			$track = $aseco->client->getResponse();
-		}
-	} else {  // TMF
-		if ($offset == 1)
-			$aseco->client->query('GetNextChallengeIndex');
-		else
-			$aseco->client->query('GetCurrentChallengeIndex');
-		$trkid = $aseco->client->getResponse();
-		$rtn = $aseco->client->query('GetChallengeList', 1, $trkid);
-		$track = $aseco->client->getResponse();
-	}
+    $timelimit = preg_split(":", trim($Challenge[0]['tracktime']));
+    $CustomTimeLimit = (($timelimit[0] * 60) + $timelimit[1]) * 1000;
 
-	// get track info
-	$rtn = $aseco->client->query('GetChallengeInfo', $track[0]['FileName']);
-	$trackinfo = $aseco->client->getResponse();
-	return new Challenge($trackinfo);
+    $newtime = $CustomTimeLimit;
+    $aseco->client->addcall('SetTimeAttackLimit', array($newtime));
+}
+
+function get_trackinfo($aseco, $offset)
+{
+
+    // get current/next track using /nextmap algorithm
+    if ($aseco->server->getGame() != 'TMF') {
+        $aseco->client->query('GetCurrentChallengeIndex');
+        $trkid = $aseco->client->getResponse();
+        $trkid += $offset;
+        $aseco->client->resetError();
+        $rtn = $aseco->client->query('GetChallengeList', 1, $trkid);
+        $track = $aseco->client->getResponse();
+        if ($aseco->client->isError()) {
+            // get first track
+            $rtn = $aseco->client->query('GetChallengeList', 1, 0);
+            $track = $aseco->client->getResponse();
+        }
+    } else {  // TMF
+        if ($offset == 1)
+            $aseco->client->query('GetNextChallengeIndex');
+        else
+            $aseco->client->query('GetCurrentChallengeIndex');
+        $trkid = $aseco->client->getResponse();
+        $rtn = $aseco->client->query('GetChallengeList', 1, $trkid);
+        $track = $aseco->client->getResponse();
+    }
+
+    // get track info
+    $rtn = $aseco->client->query('GetChallengeInfo', $track[0]['FileName']);
+    $trackinfo = $aseco->client->getResponse();
+    return new Challenge($trackinfo);
 }  // get_trackinfo
 
 ?>

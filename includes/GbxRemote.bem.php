@@ -866,10 +866,10 @@ function big_endian_unpack($format, $data) {
 		$repeater = intval(substr($f_v, 1));
 		if ($repeater == 0)
 			$repeater = 1;
-		if ($f_v{1} == '*') {
+		if ($f_v[1] == '*') {
 			$repeater = count($ar) - $i;
 		}
-		if ($f_v{0} != 'd') {
+		if ($f_v[0] != 'd') {
 			$i += $repeater;
 			continue;
 		}

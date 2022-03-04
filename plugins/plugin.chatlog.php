@@ -25,7 +25,7 @@ function log_chat($aseco, $chat) {
 	global $chatbuf, $chatlen;
 
 	// check for non-empty player chat line, not a chat command
-	if ($chat[0] != $aseco->server->id && $chat[2] != '' && $chat[2]{0} != '/') {
+	if ($chat[0] != $aseco->server->id && $chat[2] != '' && $chat[2][0] != '/') {
 		// drop oldest chat line if buffer full
 		if (count($chatbuf) >= $chatlen) {
 			array_shift($chatbuf);

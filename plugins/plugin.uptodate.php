@@ -114,7 +114,7 @@ function admin_mergegbl($aseco, $logtitle, $login, $manual, $url) {
 			}
 			// send all entries and ignore results
 			if (!$aseco->client->multiquery(true)) {
-				trigger_error('[' . $this->client->getErrorCode() . '] BlackList (merge) - ' . $this->client->getErrorMessage(), E_USER_ERROR);
+				trigger_error('[' . $aseco->client->getErrorCode() . '] BlackList (merge) - ' . $aseco->client->getErrorMessage(), E_USER_ERROR);
 			}
 
 			// update black list file if necessary

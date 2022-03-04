@@ -2,7 +2,7 @@
 	//////////////////////////////////////////////////////////////////////
 	//	@Name: 		ZeroSwitch
 	//	@Version:	1.1f
-	//	@Author:	BBMV & Büddl
+	//	@Author:	BBMV & BÃ¼ddl
 	//	@Date:		06-03-2009
 	//////////////////////////////////////////////////////////////////////
 	
@@ -688,9 +688,9 @@ CREATE TABLE IF NOT EXISTS `envvar` (
 				$xml = '<manialinks><manialink id="3487823">';
 				$xml .= '<frame>';	
 				$xml .= '<quad  posn="'.($zs_ENV['LEFT_POS']-1).' '.($zs_ENV['TOP_POS']+0.35).' 2" sizen="31.5 '.($cnt*1.5+1.0-0.25).'" halign="left" valign="bottom" style="Bgs1InRace" substyle="NavButton" />';
-				$serverName = eregi_replace("\\$(s|>|<|o|l|h)","",$aseco->server->name);
-				$serverName = eregi_replace("\\[[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+\]","", $serverName);
-				$serverName = eregi_replace("\\[[A-Za-z0-9]+\.[A-Za-z0-9]+\-[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+\]","", $serverName);
+				$serverName = preg_replace("\\$(s|>|<|o|l|h)","",$aseco->server->name);
+				$serverName = preg_replace("\\[[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+\]","", $serverName);
+				$serverName = preg_replace("\\[[A-Za-z0-9]+\.[A-Za-z0-9]+\-[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+\]","", $serverName);
 				
 				$xml .= '<quad style="Icons64x64_1" valign="bottom" halign="right" substyle="ArrowGreen" posn="'.($zs_ENV['LEFT_POS']+6.6).' '.($zs_ENV['TOP_POS']+$cnt*1.5+1.0-0.30).' 3" sizen="2.5 2.5"/>';
 				$xml .= '<quad sizen="24.5 2.3" valign="bottom" posn="'.($zs_ENV['LEFT_POS']+30.5).' '.($zs_ENV['TOP_POS']+$cnt*1.5+1.0-0.25).' 3" halign="right" style="Bgs1InRace" substyle="NavButton" />';
@@ -702,9 +702,9 @@ CREATE TABLE IF NOT EXISTS `envvar` (
 				for($i = 0; $i < $cnt; $i++) {
 					$server = $res->fetch_assoc();
 					
-					$serverName = eregi_replace("\\$(s|>|<|o|l|h)","",$server['serverName']);
-					$serverName = eregi_replace("\\[[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+\]","", $serverName);
-					$serverName = eregi_replace("\\[[A-Za-z0-9]+\.[A-Za-z0-9]+\-[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+\]","", $serverName);
+					$serverName = preg_replace("\\$(s|>|<|o|l|h)","",$server['serverName']);
+					$serverName = preg_replace("\\[[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+\]","", $serverName);
+					$serverName = preg_replace("\\[[A-Za-z0-9]+\.[A-Za-z0-9]+\-[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+\]","", $serverName);
 					
 					if ($server['maxPlayers']-$server['playerCount'] > 1) {
 						$method = 'join';

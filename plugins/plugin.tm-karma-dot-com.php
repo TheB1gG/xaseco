@@ -157,7 +157,7 @@ function tmkarma_onSync ($aseco) {
 		'AFG' => array("Afghanistan",					'ASIA'),
 		'AGO' => array("Angola",					'AFRICA'),
 		'AIA' => array("Anguilla",					'NORTHAMERICA'),
-		'ALA' => array("Åland Islands",					'EUROPE'),
+		'ALA' => array("ï¿½land Islands",					'EUROPE'),
 		'ALB' => array("Albania",					'EUROPE'),
 		'AND' => array("Andorra",					'EUROPE'),
 		'ANT' => array("Netherlands Antilles",				'NORTHAMERICA'),
@@ -180,7 +180,7 @@ function tmkarma_onSync ($aseco) {
 		'BHR' => array("Bahrain",					'ASIA'),
 		'BHS' => array("Bahamas",					'NORTHAMERICA'),
 		'BIH' => array("Bosnia and Herzegovina",			'EUROPE'),
-		'BLM' => array("Saint Barthélemy",				'NORTHAMERICA'),
+		'BLM' => array("Saint Barthï¿½lemy",				'NORTHAMERICA'),
 		'BLR' => array("Belarus",					'EUROPE'),
 		'BLZ' => array("Belize",					'NORTHAMERICA'),
 		'BMU' => array("Bermuda",					'NORTHAMERICA'),
@@ -197,7 +197,7 @@ function tmkarma_onSync ($aseco) {
 		'CHE' => array("Switzerland",					'EUROPE'),
 		'CHL' => array("Chile",						'SOUTHAMERICA'),
 		'CHN' => array("China",						'ASIA'),
-		'CIV' => array("Côte d'Ivoire",					'AFRICA'),
+		'CIV' => array("Cï¿½te d'Ivoire",					'AFRICA'),
 		'CMR' => array("Cameroon",					'AFRICA'),
 		'COD' => array("Democratic Republic of Congo",			'AFRICA'),
 		'COG' => array("Republic of Congo",				'AFRICA'),
@@ -339,7 +339,7 @@ function tmkarma_onSync ($aseco) {
 		'PSE' => array("Palestinian Territory, Occupied",		'ASIA'),
 		'PYF' => array("French Polynesia",				'OCEANIA'),
 		'QAT' => array("Qatar",						'ASIA'),
-		'REU' => array("Réunion",					'AFRICA'),
+		'REU' => array("Rï¿½union",					'AFRICA'),
 		'ROU' => array("Romania",					'EUROPE'),
 		'RUS' => array("Russian Federation",				'RUSSIA'),
 		'RWA' => array("Rwanda",					'AFRICA'),
@@ -3942,7 +3942,7 @@ function tmkarma_uptodateCheck ($player) {
 	}
 	else {
 		$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($tmkarma_config['messages']['uptodate_failed']), $player->login);
-		$aseco->console('[plugin.tm-karma-dot-com.php] tmkarma_uptodateCheck() connection failed with '. $response['Code'] .' ('. $response['Reason'] .') for url ['. $api_url .']');
+		$aseco->console('[plugin.tm-karma-dot-com.php] tmkarma_uptodateCheck() connection failed with '. $response['Code'] .' ('. $response['Reason'] .') for url ['. $url .']');
 	}
 
 }

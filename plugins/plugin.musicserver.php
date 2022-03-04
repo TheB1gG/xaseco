@@ -273,15 +273,16 @@ function music_nextsong($aseco, $data) {
 function chat_music($aseco, $command) {
 	global $music_server;
 
+	$player = $command['author'];
+	$login = $player->login;
+	$arglist = $command['params'];
+
 	if ($aseco->server->getGame() != 'TMF') {
 		$message = $aseco->getChatMessage('FOREVER_ONLY');
 		$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
 		return;
 	}
 
-	$player = $command['author'];
-	$login = $player->login;
-	$arglist = $command['params'];
 	$command['params'] = explode(' ', preg_replace('/ +/', ' ', $command['params']));
 	if (!isset($command['params'][1])) $command['params'][1] = '';
 

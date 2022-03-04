@@ -854,12 +854,12 @@ class AutoQueue extends Plugin {
 			}
 		}
 
-		$this->rotatePlayers($logins);
+		$this->rotatePlayers($logins, $specs);
 		}
 	}
 
 
-	function rotatePlayers($logins) {
+	function rotatePlayers($logins, $specs) {
 		// fakequeue
 		/*for ($i=1; $i<=3; $i++) {
 			$this->addToQueue("fake" . $i);

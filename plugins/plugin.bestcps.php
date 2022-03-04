@@ -34,7 +34,7 @@ $HiddenFor = array();
 
 $tab_cp_time = array();
 $finish_time = -1;
-$fic;
+$fic = '';
 
 class cp_time{
 	var $time;
@@ -117,7 +117,7 @@ function main_display($aseco, $record){
 #New function, mix of other scripts and some tweaks --nerve6
 function display_best_cps_0($aseco){ // affiche les best cps
 	global $tab_cp_time, $fic, $HiddenFor;
-	$texte;
+	$texte = '';
 	$min	= 0;
 	$sec	= 0; 
 	$cen	= 0; 
@@ -127,9 +127,9 @@ function display_best_cps_0($aseco){ // affiche les best cps
 
 	$posx_frame 	= $fic->position[0]->x; //main x position of the widget
 	$posy_frame 	= $fic->position[0]->y; //main y position of the widget
-	$amount_per_line = $fic->newline; 	//Nombre de CPS à afficher par ligne
-	$posx;
-	$posy;
+	$amount_per_line = $fic->newline; 	//Nombre de CPS Ã  afficher par ligne
+	$posx = 0;
+	$posy = 0;
 	
 	
 	$xml='<?xml version="1.0" encoding="UTF-8"?>';
@@ -208,7 +208,7 @@ function display_best_cps_0($aseco){ // affiche les best cps
 
 function display_best_cps_h($aseco){ // affiche les best cps
 	global $tab_cp_time, $fic;
-	$texte;
+	$texte = '';
 	$min=0;
 	$sec=0; 
 	$cen=0; 
@@ -217,7 +217,7 @@ function display_best_cps_h($aseco){ // affiche les best cps
 
 	$posx_frame = $fic->position[0]->x; //main x position of the widget
 	$posy_frame = $fic->position[0]->y; //main y position of the widget
-	$posx;	
+	$posx = 0;
 	
 	$xml='<?xml version="1.0" encoding="UTF-8"?>';
 	$xml.='<manialink id="123123456">';
@@ -253,7 +253,7 @@ function display_best_cps_h($aseco){ // affiche les best cps
 
 function display_best_cps_1($aseco){ // affiche les best cps
 	global $tab_cp_time, $fic;
-	$texte;
+	$texte = '';
 	$min=0;
 	$sec=0; 
 	$cen=0; 
@@ -262,7 +262,7 @@ function display_best_cps_1($aseco){ // affiche les best cps
 
 	$posx_frame = $fic->position[0]->x; //main x position of the widget
 	$posy_frame = $fic->position[0]->y; //main y position of the widget
-	$posx;	
+	$posx = 0;
 	
 	$xml='<?xml version="1.0" encoding="UTF-8"?>';
 	$xml.='<manialink id="123123456">';
@@ -296,7 +296,7 @@ function display_best_cps_1($aseco){ // affiche les best cps
 
 function display_best_cps_2($aseco){ // affiche les best cps
 	global $tab_cp_time, $fic;
-	$texte;
+	$texte = '';
 	$min=0;
 	$sec=0; 
 	$cen=0; 
@@ -305,13 +305,13 @@ function display_best_cps_2($aseco){ // affiche les best cps
 
 	$posx_frame = $fic->position[0]->x; //main x position of the widget
 	$posy_frame = $fic->position[0]->y; //main y position of the widget
-	$posx;	
+	$posx = 0;
 	
 	$xml='<?xml version="1.0" encoding="UTF-8"?>';
 	$xml.='<manialink id="123123456">';
 	$xml.='<frame posn="' .$posx_frame. ' ' .$posy_frame. '">';
 	$xml.='<format textsize="1"/>';
-	$tmp = $nb * 2+0.2;
+	$tmp = count($tab_cp_time) * 2+0.2;
 	$xml.='<quad  posn="0 1.1" sizen="14 '.$tmp.'" halign="center" valign="top" style="Bgs1InRace" substyle="NavButton" />';
 	
 	foreach($tab_cp_time as $value){ //pour chaque enregistrement
@@ -340,7 +340,7 @@ function display_best_cps_2($aseco){ // affiche les best cps
 
 function display_best_cps_3($aseco){ // affiche les best cps
 	global $tab_cp_time, $fic;
-	$texte;
+	$texte = '';
 	$min=0;
 	$sec=0; 
 	$cen=0; 
@@ -349,7 +349,7 @@ function display_best_cps_3($aseco){ // affiche les best cps
 
 	$posx_frame = $fic->position[0]->x; //main x position of the widget
 	$posy_frame = $fic->position[0]->y; //main y position of the widget
-	$posx;	
+	$posx = 0;
 	
 	$xml='<?xml version="1.0" encoding="UTF-8"?>';
 	$xml.='<manialink id="123123456">';

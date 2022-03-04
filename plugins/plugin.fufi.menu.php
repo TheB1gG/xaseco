@@ -105,7 +105,7 @@ class FufiMenu {
 
 		foreach ($elements as $element){
 			$this->styles[$element] = array();
-			eval('$node = $this->xmlRaw->styles->'.$element.';');
+			$node = $this->xmlRaw->styles->$element;
 			$this->styles[$element]['style'] = strval($node['style']);
 			$this->styles[$element]['substyle'] = strval($node['substyle']);
 		}
@@ -182,6 +182,7 @@ class FufiMenu {
 	 * @param FufiMenuEntry $entry
 	 */
 	function insertEntry($entryPoint, $insertAfter, $entry){
+		$inserted = false;
 		if (!$entryPoint){
 			if ($insertAfter){
 				$this->entries[] = $entry;
@@ -489,7 +490,7 @@ class FufiMenu {
 		$posy = $this->posy;
 		$width = $this->width;
 		$height = $this->height;
-
+		$content = '';
 		foreach ($ids as $id){
 			$itemoffset = 0;
 			if (!isset($oldId)){
@@ -629,7 +630,7 @@ class FufiMenu {
 		//display caption
 		$xml = str_replace(array('%height%', '%labely%', '%caption%'),
 		array(1.9, -0.7, trim($caption)), $menucaption);
-		$result .= $xml;
+		$result = $xml;
 
 		foreach ($entries as $entry){
 			if (in_array($entry->id, $ids)){
@@ -729,6 +730,7 @@ class FufiMenuEntry{
 	 */
 	function insertEntry($entryPoint, $insertAfter, $entry){
 		global $aseco;
+		$inserted = false;
 		if (!$entryPoint){
 			if ($insertAfter){
 				$this->entries[] = $entry;

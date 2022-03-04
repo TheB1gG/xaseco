@@ -47,7 +47,7 @@ $show_custom_version, $show_dedimania;
 		if (IN_XASECO){
 			global $dedi_db;
 		} else {
-			$dedi_db = $this->Aseco->getPlugin('DediMania')->dedi_db;
+			$dedi_db = $aseco->Aseco->plugins['DediMania']->dedi_db;
 		}
 
 		$rank = 0;

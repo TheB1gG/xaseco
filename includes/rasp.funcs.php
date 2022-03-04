@@ -15,6 +15,7 @@ Aseco::registerEvent('onNewChallenge2', 'initChallengesCache');
 
 global $challengeListCache;
 $challengeListCache = array();
+$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 
 // called @ onChallengeListModified & TMF
 function clearChallengesCache($aseco, $data) {
@@ -112,7 +113,7 @@ function getChallengesCache($aseco) {
 
 // calls function get_recs() from chat.records2.php
 function getAllChallenges($player, $wildcard, $env) {
-	global $aseco, $jb_buffer, $maxrecs;
+	global $aseco, $jb_buffer, $maxrecs, $envids;
 
 	$player->tracklist = array();
 
@@ -178,7 +179,6 @@ function getAllChallenges($player, $wildcard, $env) {
 			$player->msgs[] = $aseco->formatColors($head . $msg);
 
 	} elseif ($aseco->server->getGame() == 'TMF') {
-		$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 		$head = 'Tracks On This Server:';
 		$msg = array();
 		if ($aseco->server->packmask != 'Stadium')
@@ -275,7 +275,7 @@ function getAllChallenges($player, $wildcard, $env) {
 }  // getAllChallenges
 
 function getChallengesByKarma($player, $karmaval) {
-	global $aseco, $jb_buffer;
+	global $aseco, $jb_buffer, $envids;
 
 	$player->tracklist = array();
 
@@ -351,7 +351,6 @@ function getChallengesByKarma($player, $karmaval) {
 			$player->msgs[] = $aseco->formatColors($head . $msg);
 
 	} elseif ($aseco->server->getGame() == 'TMF') {
-		$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 		$head = 'Tracks by Karma (' . $order . '):';
 		$msg = array();
 		if ($aseco->server->packmask != 'Stadium')
@@ -435,7 +434,7 @@ function getChallengesByKarma($player, $karmaval) {
 }  // getChallengesByKarma
 
 function getChallengesNoFinish($player) {
-	global $aseco, $jb_buffer;
+	global $aseco, $jb_buffer, $envids;
 
 	$player->tracklist = array();
 
@@ -512,7 +511,6 @@ function getChallengesNoFinish($player) {
 			$player->msgs[] = $aseco->formatColors($head . $msg);
 
 	} elseif ($aseco->server->getGame() == 'TMF') {
-		$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 		$head = 'Tracks You Haven\'t Finished:';
 		$msg = array();
 		if ($aseco->server->packmask != 'Stadium')
@@ -593,7 +591,7 @@ function getChallengesNoFinish($player) {
 }  // getChallengesNoFinish
 
 function getChallengesNoRank($player) {
-	global $aseco, $jb_buffer, $maxrecs;
+	global $aseco, $jb_buffer, $maxrecs, $envids;
 
 	$player->tracklist = array();
 
@@ -703,7 +701,6 @@ function getChallengesNoRank($player) {
 			$player->msgs[] = $aseco->formatColors($head . $msg);
 
 	} elseif ($aseco->server->getGame() == 'TMF') {
-		$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 		$head = 'Tracks You Have No Rank On:';
 		$msg = array();
 		if ($aseco->server->packmask != 'Stadium')
@@ -784,7 +781,7 @@ function getChallengesNoRank($player) {
 }  // getChallengesNoRank
 
 function getChallengesNoGold($player) {
-	global $aseco, $jb_buffer;
+	global $aseco, $jb_buffer, $envids;
 
 	$player->tracklist = array();
 
@@ -858,7 +855,6 @@ function getChallengesNoGold($player) {
 				$player->msgs[] = $aseco->formatColors($head . $msg);
 
 		} elseif ($aseco->server->getGame() == 'TMF') {
-			$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 			$head = 'Tracks You Didn\'t Beat Gold Time On:';
 			$msg = array();
 			if ($aseco->server->packmask != 'Stadium')
@@ -1038,7 +1034,7 @@ function getChallengesNoGold($player) {
 }  // getChallengesNoGold
 
 function getChallengesNoAuthor($player) {
-	global $aseco, $jb_buffer;
+	global $aseco, $jb_bufferm, $envids;
 
 	$player->tracklist = array();
 
@@ -1112,7 +1108,6 @@ function getChallengesNoAuthor($player) {
 				$player->msgs[] = $aseco->formatColors($head . $msg);
 
 		} elseif ($aseco->server->getGame() == 'TMF') {
-			$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 			$head = 'Tracks You Didn\'t Beat Author Time On:';
 			$msg = array();
 			if ($aseco->server->packmask != 'Stadium')
@@ -1293,7 +1288,7 @@ function getChallengesNoAuthor($player) {
 
 // calls function get_recs() from chat.records2.php
 function getChallengesNoRecent($player) {
-	global $aseco, $jb_buffer, $maxrecs;
+	global $aseco, $jb_buffer, $maxrecs, $envids;
 
 	$player->tracklist = array();
 
@@ -1363,7 +1358,6 @@ function getChallengesNoRecent($player) {
 			$player->msgs[] = $aseco->formatColors($head . $msg);
 
 	} elseif ($aseco->server->getGame() == 'TMF') {
-		$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 		$head = 'Tracks You Didn\'t Play Recently:';
 		$msg = array();
 		if ($aseco->server->packmask != 'Stadium')
@@ -1450,7 +1444,7 @@ function getChallengesNoRecent($player) {
 }  // getChallengesNoRecent
 
 function getChallengesByLength($player, $order) {
-	global $aseco, $jb_buffer;
+	global $aseco, $jb_buffer, $envids;
 
 	$player->tracklist = array();
 
@@ -1510,7 +1504,6 @@ function getChallengesByLength($player, $order) {
 			$player->msgs[] = $aseco->formatColors($head . $msg);
 
 	} elseif ($aseco->server->getGame() == 'TMF') {
-		$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 		$head = ($order ? 'Shortest' : 'Longest') . ' Tracks On This Server:';
 		$msg = array();
 		if ($aseco->server->packmask != 'Stadium')
@@ -1586,7 +1579,7 @@ function getChallengesByLength($player, $order) {
 }  // getChallengesByLength
 
 function getChallengesByAdd($player, $order, $count) {
-	global $aseco, $jb_buffer;
+	global $aseco, $jb_buffer, $envids;
 
 	$player->tracklist = array();
 
@@ -1650,7 +1643,6 @@ function getChallengesByAdd($player, $order, $count) {
 			$player->msgs[] = $aseco->formatColors($head . $msg);
 
 	} elseif ($aseco->server->getGame() == 'TMF') {
-		$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 		$head = ($order ? 'Newest' : 'Oldest') . ' Tracks On This Server:';
 		$msg = array();
 		if ($aseco->server->packmask != 'Stadium')
@@ -1733,7 +1725,7 @@ function getChallengesByAdd($player, $order, $count) {
 }  // getChallengesByAdd
 
 function getChallengesNoVote($player) {
-	global $aseco, $jb_buffer, $maxrecs;
+	global $aseco, $jb_buffer, $maxrecs, $envids;
 
 	$player->tracklist = array();
 
@@ -1798,7 +1790,6 @@ function getChallengesNoVote($player) {
 			$player->msgs[] = $aseco->formatColors($head . $msg);
 
 	} elseif ($aseco->server->getGame() == 'TMF') {
-		$envids = array('Stadium' => 11, 'Alpine' => 12, 'Bay' => 13, 'Coast' => 14, 'Island' => 15, 'Rally' => 16, 'Speed' => 17);
 		$head = 'Tracks You Didn\'t Vote For:';
 		$msg = array();
 		if ($aseco->server->packmask != 'Stadium')

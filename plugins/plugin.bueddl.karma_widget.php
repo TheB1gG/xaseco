@@ -60,7 +60,7 @@ function bkm_onKarmaChange($aseco, $call) {
 
 
 function bkm_display($aseco, $login = NULL, $cid = NULL) {
-	if ($cid == $NULL)
+	if ($cid == NULL)
 		$cid = $aseco->server->challenge->id;
 	$karma = getKarmaValues($cid);
 	$karma['GoodPct'] = $karma['GoodPct']/100;

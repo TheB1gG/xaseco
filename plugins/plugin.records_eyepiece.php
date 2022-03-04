@@ -123,7 +123,7 @@
  *  91816			id for action for show TopTracksWindow
  *  91817			id for action for show TopVotersWindow
  *  91818			id for action for show MusiclistWindow
- *  91819			id for action drop current juke´d song (MusiclistWindow)
+ *  91819			id for action drop current jukeï¿½d song (MusiclistWindow)
  *  91820			id for action for show TracklistWindow
  *  91821			id for action for show TracklistFilterWindow
  *  91822			id for action for filter only 'Stadium' Tracks
@@ -877,7 +877,7 @@ function re_onSync ($aseco, $reload = null) {
 	unset($widgets, $widget);
 
 
-	// Make sure refresh´s are set, otherwise set default
+	// Make sure refreshï¿½s are set, otherwise set default
 	$re_config['FEATURES'][0]['REFRESH_INTERVAL'][0]		= ((isset($re_config['FEATURES'][0]['REFRESH_INTERVAL'][0])) ? (int)$re_config['FEATURES'][0]['REFRESH_INTERVAL'][0] : 10);
 	$re_config['NICEMODE'][0]['REFRESH_INTERVAL'][0]		= ((isset($re_config['NICEMODE'][0]['REFRESH_INTERVAL'][0])) ? (int)$re_config['NICEMODE'][0]['REFRESH_INTERVAL'][0] : 10);
 
@@ -2749,7 +2749,7 @@ function chat_togglewidgets ($aseco, $command) {
 function re_toggleWidgets ($aseco, $command) {
 	global $re_config, $re_cache;
 
-
+	$player = $command['author'];
 	if ($aseco->server->gamestate == Server::RACE) {
 		if ($re_config['States']['NiceMode'] == false) {
 
@@ -3764,7 +3764,7 @@ function re_onPlayerManialinkPageAnswer ($aseco, $answer) {
 	}
 	else if ($answer[2] == $re_config['ManialinkId'] .'19') {
 
-		// Drop the current juke´d song from Players Jukebox
+		// Drop the current jukeï¿½d song from Players Jukebox
 		if ( function_exists('chat_music') ) {
 			$command['author'] = $player;
 			$command['params'] = 'drop';
@@ -4323,7 +4323,7 @@ function re_onPlayerManialinkPageAnswer ($aseco, $answer) {
 			chat_jukebox($aseco, $command);
 		}
 
-		// Refresh on juke´d track
+		// Refresh on jukeï¿½d track
 		$widgets .= re_buildTracklistWindow($player->data['RecordsEyepiece']['Window']['Page'], $player);
 	}
 	else if ( ($answer[2] <= -(int)$re_config['ManialinkId'] .'7000') && ($answer[2] >= -(int)$re_config['ManialinkId'] .'7249') ) {
@@ -4387,7 +4387,7 @@ function re_onPlayerManialinkPageAnswer ($aseco, $answer) {
 		$re_config['States']['MusicServerPlaylist']['NeedUpdate'] = true;
 
 		if ($re_config['FEATURES'][0]['SONGLIST'][0]['FORCE_SONGLIST'][0] == true) {
-			// Refresh on juke´d song (action from plugin.musicserver.php)
+			// Refresh on jukeï¿½d song (action from plugin.musicserver.php)
 			$page = $player->data['RecordsEyepiece']['Window']['Page'];
 			$widgets .= re_buildMusiclistWindow($page, $player->login);
 		}
@@ -13431,7 +13431,7 @@ function re_buildTracklistWindow ($page, $player) {
 	$buttons .= '<quad posn="6.6 0 0.02" sizen="3.2 3.2" style="Icons64x64_1" substyle="StarGold"/>';
 	$buttons .= '</frame>';
 
-	// Button "Drop current juke´d tracks"
+	// Button "Drop current jukeï¿½d tracks"
 	if ($aseco->allowAbility($player, 'clearjukebox')) {
 		$buttons .= '<frame posn="-16.5 0 0.04">';
 		$buttons .= '<quad posn="0 0 0.01" sizen="3.2 3.2" action="'. $re_config['ManialinkId'] .'155" style="Icons64x64_1" substyle="ArrowDown"/>';
@@ -14637,7 +14637,7 @@ function re_buildMusiclistWindow ($page, $caller) {
 		// Frame for Previous/Next Buttons
 		$buttons = '<frame posn="52.2 -53.2 0">';
 
-		// Button "Drop current juke´d song"
+		// Button "Drop current jukeï¿½d song"
 		$buttons .= '<frame posn="-16.5 0 0">';
 		$buttons .= '<quad posn="0 0 0.12" sizen="3.2 3.2" action="'. $re_config['ManialinkId'] .'19" style="Icons64x64_1" substyle="ArrowDown"/>';
 		$buttons .= '<quad posn="0.85 -1.1 0.13" sizen="1.5 1.4" bgcolor="EEEF"/>';

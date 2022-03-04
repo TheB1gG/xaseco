@@ -162,7 +162,7 @@ function mk_onSync ($aseco) {
 		'AFG' => array("Afghanistan",					'ASIA'),
 		'AGO' => array("Angola",					'AFRICA'),
 		'AIA' => array("Anguilla",					'NORTHAMERICA'),
-		'ALA' => array("Åland Islands",					'EUROPE'),
+		'ALA' => array("Ã…land Islands",					'EUROPE'),
 		'ALB' => array("Albania",					'EUROPE'),
 		'AND' => array("Andorra",					'EUROPE'),
 		'ANT' => array("Netherlands Antilles",				'NORTHAMERICA'),
@@ -185,7 +185,7 @@ function mk_onSync ($aseco) {
 		'BHR' => array("Bahrain",					'ASIA'),
 		'BHS' => array("Bahamas",					'NORTHAMERICA'),
 		'BIH' => array("Bosnia and Herzegovina",			'EUROPE'),
-		'BLM' => array("Saint Barthélemy",				'NORTHAMERICA'),
+		'BLM' => array("Saint BarthÃ©lemy",				'NORTHAMERICA'),
 		'BLR' => array("Belarus",					'EUROPE'),
 		'BLZ' => array("Belize",					'NORTHAMERICA'),
 		'BMU' => array("Bermuda",					'NORTHAMERICA'),
@@ -202,7 +202,7 @@ function mk_onSync ($aseco) {
 		'CHE' => array("Switzerland",					'EUROPE'),
 		'CHL' => array("Chile",						'SOUTHAMERICA'),
 		'CHN' => array("China",						'ASIA'),
-		'CIV' => array("Côte d'Ivoire",					'AFRICA'),
+		'CIV' => array("CÃ´te d'Ivoire",					'AFRICA'),
 		'CMR' => array("Cameroon",					'AFRICA'),
 		'COD' => array("Democratic Republic of Congo",			'AFRICA'),
 		'COG' => array("Republic of Congo",				'AFRICA'),
@@ -344,7 +344,7 @@ function mk_onSync ($aseco) {
 		'PSE' => array("Palestinian Territory, Occupied",		'ASIA'),
 		'PYF' => array("French Polynesia",				'OCEANIA'),
 		'QAT' => array("Qatar",						'ASIA'),
-		'REU' => array("Réunion",					'AFRICA'),
+		'REU' => array("RÃ©union",					'AFRICA'),
 		'ROU' => array("Romania",					'EUROPE'),
 		'RUS' => array("Russian Federation",				'RUSSIA'),
 		'RWA' => array("Rwanda",					'AFRICA'),
@@ -2874,7 +2874,7 @@ function mk_handlePlayerVote ($player, $vote) {
 			// All other becomes this message.
 			$logins[] = $pl->login;
 		}
-
+        $player_voted = '';
 		// Build the message and send out
 		if ($vote == 1) {
 			$player_voted = $mk_config['messages']['karma_good'];
@@ -3147,7 +3147,8 @@ function mk_showReminderWindow ($players) {
 function mk_showManiaExchangeLinkWindow ($player) {
 	global $aseco, $mk_config, $karma;
 
-
+    $cmd = '';
+    $voted = '';
 	// Bail out immediately if not at Score
 	if ($mk_config['widget']['current_state'] != 7) {
 		return;
@@ -3769,7 +3770,7 @@ function mk_handleWebaccess ($response, $type, $url, $target = false) {
 					$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $target->login);
 				}
 				else {
-					$message = '{#server}>> {#error}Connection failed with '. $response['Code'] .' ('. $response['Reason'] .') for url ['. $api_url .']' ."\n\r";
+					$message = '{#server}>> {#error}Connection failed with '. $response['Code'] .' ('. $response['Reason'] .') for url ['. $url .']' ."\n\r";
 					$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $target->login);
 				}
 			}
@@ -4311,6 +4312,7 @@ function mk_exportVotes ($player) {
 	LEFT JOIN `players` AS `p` ON `p`.`Id`=`rs`.`PlayerId`
 	ORDER BY `c`.`Uid`;
 	";
+    $count = 1;
 	$res = mysql_query($query);
 	if ($res) {
 		if (mysql_num_rows($res) > 0) {
