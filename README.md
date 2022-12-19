@@ -1,8 +1,11 @@
 # Welcome to XASECO
 
-This XASECO has fixes from many places and should run on current PHP versions.
+This XASECO has fixes from many places and should run on PHP 7 versions.
 
-Original authors: Flo, Assembler Maniac, Jfreu, [Xymph](https://www.xaseco.org/), [Undef](https://www.undef.name/)& others
+If you are on PHP 8 or newer please visit https://codeberg.org/hanouta/xaseco
+
+
+Original authors: Flo, Assembler Maniac, Jfreu, [Xymph](https://www.xaseco.org/), [Undef](https://www.undef.name/) & others
 Thanks for fixes to [Bueddl](https://ftp.bueddl.de/tm/php7_patches/), [Reaby](https://reaby.kapsi.fi/), Lecky and many more
 
 
